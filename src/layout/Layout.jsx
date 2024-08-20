@@ -6,8 +6,8 @@ import Navbar from "../components/navbar/Navbar";
 const Layout = () => {
     return (
         <>
-            <Navbar />
-            <main>
+            {/* <Navbar /> */}
+            <main className="font-jaldi">
                 <Outlet /> 
             </main>
 
