@@ -4,7 +4,17 @@ export default {
       "./src/**/*.{js,jsx,ts,tsx}",
       ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        blue: "#0079FF",
+        green: "#00DFA2",
+        pink: "#FF0060",
+        yellow: "#FBFDCE"
+      },
+      fontFamily: {
+        jaldi: 'Jaldi'
+      }
+    },
   },
   plugins: [],
 }
