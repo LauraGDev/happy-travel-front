@@ -7,7 +7,10 @@ const Layout = () => {
     return (
         <>
             {/* <Navbar /> */}
+      
             <main className="font-jaldi">
+
+      
                 <Outlet /> 
             </main>
 
