@@ -7,7 +7,7 @@ const CardsContainer = () => {
         destinations.push(["Assets/foto-prueba-BORRAR.png", "Islas Azores", "Portugal"])
     }
   return (
-    <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mx-12 my-8 lg:mx-[4.375rem]">
+    <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mx-12 my-8 lg:mx-[4.375rem] z-[-1] relative">
       {destinations?.map((des, index) => (
         <DestinationCard key={index} photo={des[0]} destination={des[1]} country={des[2]} createdBy={2} actualUser={3} isLoggedIn={false}/>
       ))}

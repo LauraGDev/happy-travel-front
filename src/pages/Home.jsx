@@ -1,22 +1,11 @@
-/* import Button from '../components/buttons/Button' */
-import CardsContainer from '../components/home/CardsContainer'
-import SearchBar from '../components/navbar/SearchBar'
-import Input from '../components/input/Input'
-import Login from './Login'
-
+import CardsContainer from "../components/home/CardsContainer";
 
 const Home = () => {
   return (
     <div>
-      {/* <Button text="Aceptar" className="bg-green"/>
-      <Button text="Cancelar" className="bg-pink"/> */}
-      <CardsContainer/>
-      <SearchBar/>
-
-      <Login/>
-
+      <CardsContainer className='z-[-9999]'/>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
