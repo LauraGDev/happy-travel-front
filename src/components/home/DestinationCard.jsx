@@ -1,18 +1,21 @@
-const DestinationCard = () => {
+import { PropTypes } from "prop-types";
+
+const DestinationCard = ({photo, destination, country, createdBy, actualUser, isLoggedIn}) => {
 	return (
-		<article className="relative text-blue bg-yellow rounded-[1.25rem] m-6">
-			<a className="absolute right-0 p-2" href="#"><img src="Assets/Info-icon.svg" alt="Más información" /></a>
+        
+		<article className="relative text-blue bg-yellow rounded-[1.25rem]">
+			<a className={`absolute right-0 p-2 ${!isLoggedIn ? "hidden" : "block"}`} href="/detail"><img src="Assets/Info-icon.svg" alt="Más información" /></a>
 			<img
 					className="rounded-[1.25rem]"
-					src="Assets/foto-prueba-BORRAR.png"
-					alt="Imágen destino"
+					src={photo}
+					alt={`Imágen de ${destination}`}
 			/>
 			<section className="flex justify-between items-center px-5 py-4 leading-none">
 					<section className="label">
-							<h3 className="font-bold text-[1.563rem] mb-1">Islas Azores</h3>
-							<p className="text-[1.25rem]">Portugal</p>
+							<h3 className="font-bold text-[1.563rem] mb-1">{destination}</h3>
+							<p className="text-[1.25rem]">{country}</p>
 					</section>
-					<section className="icons flex justify-between gap-[0.625rem]">
+					<section className={`icons flex justify-between gap-[0.625rem] ${createdBy === actualUser ? "block" : "hidden"}`}>
 						<a href="#"><img src="Assets/Edit-icon.svg" alt="Editar destino" /></a>
 						<a href="#"><img src="Assets/Delete-icon.svg" alt="Eliminar destino" /></a>
 					</section>
@@ -20,5 +23,14 @@ const DestinationCard = () => {
 		</article>
     );
 };
+
+DestinationCard.propTypes = {
+    photo: PropTypes.string,
+    destination: PropTypes.string,
+    country: PropTypes.string,
+    createdBy: PropTypes.integer,
+    actualUser: PropTypes.integer,
+    isLoggedIn: PropTypes.boolean
+  };
 
 export default DestinationCard;
