@@ -37,28 +37,33 @@ const CardsContainer = () => {
     const actualItems = isLargeScreen ? destinations.slice(firstElementIndex, lastElementIndex) : destinations;
 
     return (
-    <section className="flex flex-col">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mx-12 my-8 lg:mx-[4.375rem]">
-            {actualItems?.map((des, index) => (
-                <DestinationCard 
-                key={index} 
-                photo={des[0]} 
-                destination={des[1]} 
-                country={des[2]} 
-                createdBy={3} 
-                actualUser={2} 
-                isLoggedIn={false}/>
-            ))}
+      <section className="flex flex-col">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mx-12 my-8 lg:mx-[4.375rem] z-[-1] relative">
+          {actualItems?.map((des, index) => (
+            <DestinationCard
+              key={index}
+              photo={des[0]}
+              destination={des[1]}
+              country={des[2]}
+              createdBy={3}
+              actualUser={2}
+              isLoggedIn={false}
+            />
+          ))}
         </div>
-        <div className={`flex justify-center ${destinations.length <= 8 || !isLargeScreen ? "hidden" : "block"}`}>
-            <PreviousNextIcons 
+        <div
+          className={`flex justify-center ${
+            destinations.length <= 8 || !isLargeScreen ? "hidden" : "block"
+          }`}
+        >
+          <PreviousNextIcons
             page={actualPage}
             onClick={updatePageNumber}
-            totalPages = {destinations.length/itemsPerPage}
-            />
+            totalPages={destinations.length / itemsPerPage}
+          />
         </div>
-    </section>
-  )
+      </section>
+    );
 }
 
 export default CardsContainer
