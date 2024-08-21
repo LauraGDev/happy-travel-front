@@ -12,6 +12,7 @@ const Home = () => {
       <Button text="Cancelar" className="bg-pink"/> */}
       <CardsContainer/>
       <SearchBar/>
+
       <Login/>
 
     </div>
