@@ -9,7 +9,7 @@ const DestinationCard = ({photo, destination, country, createdBy, actualUser, is
                 <img src="Assets/Info-icon.svg" alt="Más información" />
             </Link>
 			<img
-					className="rounded-[1.25rem]"
+					className="rounded-[1.25rem] aspect-square object-cover w-full"
 					src={photo}
 					alt={`Imágen de ${destination}`}
 			/>
