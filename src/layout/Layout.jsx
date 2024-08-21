@@ -6,12 +6,13 @@ import Navbar from "../components/navbar/Navbar";
 const Layout = () => {
     return (
         <>
-            <Navbar />
-            <main>
-                <Outlet /> 
+            {/* <Navbar /> */}
+      
+            <main className="font-jaldi">
 
+      
+                <Outlet /> 
             </main>
-            <Footer />
 
         </>
     )
