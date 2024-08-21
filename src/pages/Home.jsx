@@ -4,6 +4,7 @@ import SearchBar from '../components/navbar/SearchBar'
 import Input from '../components/input/Input'
 import Login from './Login'
 import SignIn from './SignIn'
+import Edit from './Edit'
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <SearchBar/>
 
       <Login/>
+      <Edit />
 
     </div>
   )
