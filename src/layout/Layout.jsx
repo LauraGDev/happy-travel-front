@@ -7,7 +7,7 @@ import Detail from "../pages/Detail";
 const Layout = () => {
     return (
         <>
-            <Detail />
+            {/*<Navbar />*/}
             <main className="font-jaldi">
                 <Outlet /> 
             
