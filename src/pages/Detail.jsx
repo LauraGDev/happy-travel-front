@@ -1,5 +1,7 @@
 import  { useState } from 'react';
 import React from 'react'
+import PopUp from '../components/popUp/popUp'
+
 
 const Detail = () => {
   /* const [searchInput, setSearchInput] = useState('');
@@ -44,14 +46,9 @@ const Detail = () => {
             Hoy en día es un lugar de gran auge turístico. La mayoría de las playas son privadas, propiedad de particulares o emprendimientos turísticos, salvo Playa Blanca que es la única playa pública.
             En las aguas de mar que están en frente de Barú tuvo lugar la famosa batalla de Barú en 1708, durante la cual se hundió el galeón San José.</h3>
       </article>
-      <div className="flex justify-end gap-[0.625rem] mr-[7%]">
-£      <button>
-        <img src="/Assets/Edit-icon.svg" alt="Edit"  />
-      </button>
-      <button>
-        <img src="/Assets/Delete-icon.svg" alt="Delete" />
-    </button>
-      </div>
+
+      <PopUp/>
+   
       </div>
     
   )
