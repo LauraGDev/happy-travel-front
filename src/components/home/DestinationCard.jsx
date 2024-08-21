@@ -1,10 +1,13 @@
 import { PropTypes } from "prop-types";
+import { Link } from 'react-router-dom';
 
 const DestinationCard = ({photo, destination, country, createdBy, actualUser, isLoggedIn}) => {
 	return (
         
 		<article className="relative text-blue bg-yellow rounded-[1.25rem]">
-			<a className={`absolute right-0 p-2 ${!isLoggedIn ? "hidden" : "block"}`} href="/detail"><img src="Assets/Info-icon.svg" alt="Más información" /></a>
+			<Link to="/detail" className={`absolute right-0 p-2 ${!isLoggedIn ? "hidden" : "block"}`}>
+                <img src="Assets/Info-icon.svg" alt="Más información" />
+            </Link>
 			<img
 					className="rounded-[1.25rem]"
 					src={photo}
