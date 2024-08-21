@@ -41,8 +41,8 @@ const MyComponent = () => {
       {isPopupOpen && (
         <div className="absolute w-full h-full bg-[#000000a8] top-0 left-0 z-[9999]">
           <div className="ventana-popup">
-            <div className="bg-yellow h-[10.5rem] w-[21.6875rem] text-center rounded-[10%] absolute top-[34rem] left-[1.25rem]">
-              <p className="text-blue pt-[1.25rem] text-[1.25rem]">¿Quieres eliminar</p>
+          <div className="bg-yellow h-[10.5rem] w-[21.6875rem] text-center rounded-[10%] fixed inset-0 m-auto">
+          <p className="text-blue pt-[1.25rem] text-[1.25rem]">¿Quieres eliminar</p>
               <p className="text-blue pt-[1%] pb-[8%] text-[1.25rem]">este destino?</p>
               <div className="flex justify-center gap-[0.625rem]">
                 <button className="bg-green w-[7rem] h-[2.375rem] rounded-[1.1875rem] text-yellow" onClick={closePopup}>
