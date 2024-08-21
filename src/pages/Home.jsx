@@ -1,7 +1,8 @@
-import React from 'react'
-import Button from '../components/buttons/Button'
+// import React from 'react'
+// import Button from '../components/buttons/Button'
 import DestinationCard from '../components/home/DestinationCard'
 import SearchBar from '../components/navbar/SearchBar'
+import PreviousNextIcons from '../components/footer/PreviousNextIcons'
 
 
 const Home = () => {
@@ -11,6 +12,8 @@ const Home = () => {
       <Button text="Cancelar" className="bg-pink"/> */}
       <DestinationCard/>
       <SearchBar/>
+      <PreviousNextIcons/>
+      
 
     </div>
   )
