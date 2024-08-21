@@ -4,8 +4,8 @@ import Button from '../components/buttons/Button'
 
 const Login = () => {
   return (
-    <div className="flex flex-row justify-center w-auto py-2">
-      <section className="w-[95%] rounded-[1.2rem] bg-white border-4 border-yellow gap-2 py-[1.2rem] px-[1.5rem]">
+    <div className="flex flex-row justify-center w-[auto] py-2">
+      <section className="w-[22rem] rounded-[1.2rem] bg-white border-4 border-yellow gap-2 py-[1.2rem] px-[1.5rem]">
         <h1 className="text-pink font-jaldi font-bold text-center text-[1.4rem] py-1">Acceso de usuario</h1>
         <hr className="w-[100%] size-2 border-pink"/>
         <Input title="E-mail" placeholder="Escribe tu email..." type="text"/>
