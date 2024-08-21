@@ -4,6 +4,7 @@ import DestinationCard from '../components/home/DestinationCard'
 import SearchBar from '../components/navbar/SearchBar'
 import Input from '../components/input/Input'
 import Login from './Login'
+import SignIn from './SignIn'
 
 
 const Home = () => {
@@ -13,7 +14,7 @@ const Home = () => {
       <Button text="Cancelar" className="bg-pink"/> */}
       <DestinationCard/>
       <SearchBar/>
-      <Login/>
+      <SignIn />
 
     </div>
   )
