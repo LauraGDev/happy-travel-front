@@ -3,6 +3,7 @@ import CardsContainer from '../components/home/CardsContainer'
 import SearchBar from '../components/navbar/SearchBar'
 import Input from '../components/input/Input'
 import Login from './Login'
+import SignIn from './SignIn'
 
 
 const Home = () => {
