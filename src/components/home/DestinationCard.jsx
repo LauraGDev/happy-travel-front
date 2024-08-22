@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import { Link } from 'react-router-dom';
 
-const DestinationCard = ({photo, destination, country, createdBy, actualUser, isLoggedIn}) => {
+const DestinationCard = ({photo, name, country, createdBy, actualUser, isLoggedIn}) => {
 	return (
         
 		<article className="relative text-blue bg-yellow rounded-[1.25rem]">
@@ -11,11 +11,11 @@ const DestinationCard = ({photo, destination, country, createdBy, actualUser, is
 			<img
 					className="rounded-[1.25rem] aspect-square object-cover w-full"
 					src={photo}
-					alt={`Imágen de ${destination}`}
+					alt={`Imágen de ${name}`}
 			/>
 			<section className="flex justify-between items-center px-5 py-4 leading-none">
 					<section className="label">
-							<h3 className="font-bold text-[1.563rem] mb-1">{destination}</h3>
+							<h3 className="font-bold text-[1.563rem] mb-1">{name}</h3>
 							<p className="text-[1.25rem]">{country}</p>
 					</section>
 					<section className={`icons flex justify-between gap-[0.625rem] ${createdBy === actualUser ? "block" : "hidden"}`}>
@@ -29,11 +29,11 @@ const DestinationCard = ({photo, destination, country, createdBy, actualUser, is
 
 DestinationCard.propTypes = {
     photo: PropTypes.string,
-    destination: PropTypes.string,
+    name: PropTypes.string,
     country: PropTypes.string,
-    createdBy: PropTypes.integer,
-    actualUser: PropTypes.integer,
-    isLoggedIn: PropTypes.boolean
+    createdBy: PropTypes.number,
+    actualUser: PropTypes.number,
+    isLoggedIn: PropTypes.bool
   };
 
 export default DestinationCard;
