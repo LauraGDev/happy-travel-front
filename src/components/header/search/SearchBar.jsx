@@ -16,7 +16,7 @@ const SearchBar = () => {
     }
 
   return (
-    <div className="flex mx-2 my-2 relative">
+    <div className="flex  relative">
         <form action="" method="post" >
             <label className="flex flex-row items-stretch ">
             <Link to={`/${encodeURIComponent(cityName)}`}
@@ -28,7 +28,7 @@ const SearchBar = () => {
             </Link>
             <input 
             type="text" 
-            className={`rounded-[1.2rem] focus:ring-4 text-l font-jaldi pl-4 pr-3 py-[1.2rem] shadow-[inset_0_5px_6px_-1px_rgba(0,0,0,0.3)] bg-yellow ${length} h-[2rem] placeholder-blue`}
+            className={`rounded-[1.2rem] focus:ring-4 text-l font-jaldi pl-4 pr-4 py-[1.2rem] shadow-[inset_0_5px_6px_-1px_rgba(0,0,0,0.3)] bg-yellow ${length} h-[2rem] placeholder-blue`}
             placeholder='Search...'
             value={cityName}
             onChange={(e) => setCityName(e.target.value)}

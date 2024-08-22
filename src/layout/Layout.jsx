@@ -1,21 +1,15 @@
 import { Outlet } from "react-router-dom";
-/* import Navbar from "../components/navbar/Navbar"; */
-import Detail from "../pages/Detail";
-
-
+import Header from "../components/header/Header";
 
 const Layout = () => {
-    return (
-        <>
-            {/*<Navbar />*/}
-            <main className="font-jaldi">
-                <Outlet /> 
-            
-            </main>
-
-
-        </>
-    )
-}
+  return (
+    <div className="m-2">
+      <Header />
+      <main className="font-jaldi">
+        <Outlet />
+      </main>
+    </div>
+  );
+};
 
 export default Layout;
