@@ -31,9 +31,9 @@ DestinationCard.propTypes = {
     photo: PropTypes.string,
     name: PropTypes.string,
     country: PropTypes.string,
-    createdBy: PropTypes.integer,
-    actualUser: PropTypes.integer,
-    isLoggedIn: PropTypes.boolean
+    createdBy: PropTypes.number,
+    actualUser: PropTypes.number,
+    isLoggedIn: PropTypes.bool
   };
 
 export default DestinationCard;

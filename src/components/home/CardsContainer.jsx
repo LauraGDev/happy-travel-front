@@ -23,9 +23,7 @@ const CardsContainer = () => {
     
     const fetchDestinations = async () => {
         try {
-            const response = await fetch('http://localhost:4001/destinations', {
-                method: 'GET'
-            });
+            const response = await fetch('http://localhost:4001/destinations');
             if (!response.ok) {
                 throw new Error('Failed to fetch destinations');
             }
@@ -35,6 +33,8 @@ const CardsContainer = () => {
             console.error('Error fetching destinations:', error);
         }
     };
+
+    console.log(destinations)
 
     const lastElementIndex = actualPage * itemsPerPage;
     const firstElementIndex = lastElementIndex - itemsPerPage;
@@ -49,7 +49,7 @@ const CardsContainer = () => {
               photo={des.image}
               name={des.name}
               country={des.country}
-              createdBy={des.user_id}
+              createdBy={des.id_user}
               actualUser={2}
               isLoggedIn={false}
             />
