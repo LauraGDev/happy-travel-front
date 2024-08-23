@@ -1,3 +1,5 @@
+
+
 import CardsContainer from '../components/home/CardsContainer'
 
 const Home = () => {
@@ -6,6 +8,7 @@ const Home = () => {
       <CardsContainer className="z-[-9999]" />
     </main>
   );
+
 }
 
 export default Home;
