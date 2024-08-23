@@ -66,7 +66,7 @@ const Create = () => {
             window.location.reload();
         }
       }
-    // }
+    }
 
   return (
     <div className="flex justify-center w-auto py-2">
@@ -86,9 +86,9 @@ const Create = () => {
                 
                 // {handleTitle}
               />
-              {titleError && (
+             {/*  {titleError && (
                   <p className="text-pink text-sm pl-3">Título requerido</p>
-                )}
+                )} */}
               <Input 
                 id="ubicacion"
                 htmlFor="ubicacion"
@@ -115,7 +115,7 @@ const Create = () => {
           className="lg:row-start-1 lg:row-end-3 lg:h-full lg:col-start-2"
           title="¿Por qué quieres viajar allí?" 
           description={(e) => setMessage(e.target.value)} 
-           />
+          />
           <div className="flex flex-row justify-between lg:justify-start py-1 lg:row-start-3 gap-[1rem] lg:items-end">
                 <Button className="bg-green" text="Aceptar" type="submit"/>
                 <Button className="bg-pink" text="Cancelar"/>
@@ -123,11 +123,11 @@ const Create = () => {
         </section>
         </form>
       </section>
-     
+    
       
     </div>
   )
 }
-}
+
 
 export default Create
