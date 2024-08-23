@@ -1,19 +1,11 @@
-import React from 'react'
-import Button from '../components/buttons/Button'
-import DestinationCard from '../components/home/DestinationCard'
-import SearchBar from '../components/navbar/SearchBar'
-
+import CardsContainer from '../components/home/CardsContainer'
 
 const Home = () => {
   return (
-    <div>
-      {/* <Button text="Aceptar" className="bg-green"/>
-      <Button text="Cancelar" className="bg-pink"/> */}
-      <DestinationCard/>
-      <SearchBar/>
-
-    </div>
-  )
+    <main className="max-w-[118.75rem] my-0 mx-auto pb-6">
+      <CardsContainer className="z-[-9999]" />
+    </main>
+  );
 }
 
-export default Home
+export default Home;
