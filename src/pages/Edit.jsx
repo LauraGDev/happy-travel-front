@@ -31,7 +31,7 @@ const Edit = () => {
     }
 
   return (
-    <div className="flex justify-center w-[auto] py-2">
+    <div className="flex justify-center w-auto py-2">
       <section className="lg:w-[45%] w-[22rem] rounded-[1.2rem] bg-white border-4 border-yellow gap-2 py-[1.2rem] px-[1.5rem]">
       <form action="" onSubmit={handleSubmit} >
       <h1 className="text-pink font-jaldi font-bold text-center text-[1.4rem] py-1">Editar destino</h1>
@@ -50,18 +50,21 @@ const Edit = () => {
               <Input 
                 title="Ubicación" 
                 type="text"
-                // value={destination.place} 
+                value=""
+                onChange=""
               />
               <InputImg 
               title="Imagen"
-              placeholder="Escoge una imagen..."/>
+              value="" 
+              onChange="" />
               
           </section>
           <InputTexArea 
+          className="lg:row-start-1 lg:row-end-3 lg:h-full lg:col-start-2"
           title="¿Por qué quieres viajar allí?" 
-          description="At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies. At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies. At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies." 
-          className="lg:row-[span_4] lg:w-[90%]" />
-          <div className="flex flex-row justify-between lg:justify-start py-1 lg:row-start-[span_3] lg:col-[1_/_span_1] gap-[1rem]">
+          description="At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies. At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies. At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies. They offer free tutorials in all web development technologies." 
+           />
+          <div className="flex flex-row justify-between lg:justify-start py-1 lg:row-start-3 gap-[1rem] lg:items-end">
                 <Button className="bg-green" text="Aceptar" type="submit"/>
                 <Button className="bg-pink" text="Cancelar"/>
           </div>
