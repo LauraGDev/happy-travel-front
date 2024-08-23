@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Input = ({title, placeholder, type, value, onChange}) => {
+const Input = ({title, placeholder, type, value, onChange, id, htmlFor}) => {
 
   return (
     <div className="flex flex-col mx-2 my-2">
-        <label htmlFor=""></label>
-        <h2 className="font-jaldi text-blue text-[1.1rem] font-bold ml-2">{title}</h2>
+        <label htmlFor={htmlFor} className="font-jaldi text-blue text-[1.1rem] font-bold ml-2">{title}</label>
         <input 
+        id={id}
         type={type} 
         value={value} 
         placeholder={placeholder} 
