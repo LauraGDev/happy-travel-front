@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -16,6 +18,7 @@ const PopUp= () => {
   const closePopup = () => {
     setIsPopupOpen(false);
   };
+  const navigate = useNavigate();
 
   const handleDelete = async () => {
     try {
@@ -35,6 +38,8 @@ const PopUp= () => {
   
       console.log('Eliminado exitosamente');
       closePopup(); 
+      navigate("/")
+
     } catch (error) {
       console.error('Error:', error);
     }

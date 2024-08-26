@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 const Detail = () => {
     const location = useLocation();
     const id = location.state.data;
-    alert(id);
+ /*    alert(id); */
     const [destinationData, setDestinationData] = useState(null);  
     const [error, setError] = useState(null);
     useEffect(() => {
@@ -19,7 +19,7 @@ const Detail = () => {
                     setError(null);
                 } else {
                     setDestinationData(null);
-                    setError(data);
+                    setError(data.message);
                 }
             } catch (err) {
                 setError(err.message);
