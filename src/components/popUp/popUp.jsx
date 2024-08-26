@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 
 
 
-const PopUp= ({ id }) => {
+const PopUp= () => {
+  const location = useLocation();
+  const id = location.state.data;
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const openPopup = () => {
@@ -22,14 +25,15 @@ const PopUp= ({ id }) => {
           'Content-Type': 'application/json',
         },
       });
-
+  
+      console.log('Response Status:', response.status); 
+  
       if (!response.ok) {
-        throw new Error('Error al eliminar el destino');
+        const errorData = await response.text(); // O response.json() si la respuesta es JSON
+        throw new Error(`Error al eliminar el destino: ${errorData}`);
       }
-
-
+  
       console.log('Eliminado exitosamente');
-
       closePopup(); 
     } catch (error) {
       console.error('Error:', error);
