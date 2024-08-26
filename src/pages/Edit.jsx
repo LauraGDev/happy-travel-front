@@ -64,6 +64,11 @@ const Edit = () => {
           title="¿Por qué quieres viajar allí?" 
           description="At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies. At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies. At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies. They offer free tutorials in all web development technologies." 
            />
+           {errors.message && (
+              <p className="text-pink text-sm pl-3">
+              Debes poner la razón por la que quieres viajar a este destino
+              </p>
+           )}
           <div className="flex flex-row justify-between lg:justify-start py-1 lg:row-start-3 gap-[1rem] lg:items-end">
                 <Button className="bg-green" text="Aceptar" type="submit"/>
                 <Button className="bg-pink" text="Cancelar"/>
