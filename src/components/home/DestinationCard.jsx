@@ -1,13 +1,13 @@
 import { PropTypes } from "prop-types";
 import { Link } from 'react-router-dom';
 
-const DestinationCard = ({photo, name, country, createdBy, actualUser, isLoggedIn}) => {
+const DestinationCard = ({id, photo, name, country, createdBy, actualUser, isLoggedIn}) => {
 	return (
         
 		<article className="relative text-blue bg-yellow rounded-[1.25rem]">
-			<Link to="/detail" className={`absolute right-0 p-2 ${!isLoggedIn ? "hidden" : "block"}`}>
-                <img src="Assets/Info-icon.svg" alt="Más información" />
-            </Link>
+			<Link to={`/detail/${id}`} className={`absolute right-0 p-2 ${!isLoggedIn ? "hidden" : "block"}`}>
+    <img src="Assets/Info-icon.svg" alt="Más información" />
+</Link>
 			<img
 					className="rounded-[1.25rem] aspect-square object-cover w-full"
 					src={photo}
@@ -28,7 +28,8 @@ const DestinationCard = ({photo, name, country, createdBy, actualUser, isLoggedI
 };
 
 DestinationCard.propTypes = {
-    photo: PropTypes.string,
+		id: PropTypes.number.isRequired, 
+	 	photo: PropTypes.string,
     name: PropTypes.string,
     country: PropTypes.string,
     createdBy: PropTypes.number,
