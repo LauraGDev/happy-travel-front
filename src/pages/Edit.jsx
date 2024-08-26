@@ -9,30 +9,32 @@ const Edit = ({id, onUpdate, name, image, country, message}) => {
     const [title, setTitle] = useState('')
    // const [isEditing, setIsEditing] = useState(false)
     const [titleError, setTitleError] = useState(false)
-    const [newTitle, setNewTitle] = useState(name || '')
-    const [newImage, setNewImage] = useState(image || '')
-    const [newMessage, setNewMessage] = useState(message || '')
-    const [newCountry, setNewCountry] = useState(country || '')
+    const [newTitle, setNewTitle] = useState(name)
+    const [newImage, setNewImage] = useState(image)
+    const [newMessage, setNewMessage] = useState(message)
+    const [newCountry, setNewCountry] = useState(country)
 
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const res = await fetch('http//localhost:4001/3');
+          const res = await fetch('http://localhost:4001/3');
           const data = await res.json();
 
           setNewTitle(data.name);
           setNewCountry(data.country);
           setNewImage(data.image);
           setNewMessage(data.message);
+          
         } catch (error) {
-          console.error('Error recogiendo data:', error);
+          console.error('Error fethincg data:', error);
         }
       };
 
-      if (!name && !image && !message && !country) {
-          fetchData();
-      }
-  }, [id, name, image, country, message]);
+      fetchData();
+      
+  });
+
+
 
     const handleUdpate = async (e) => {
       e.preventDefault();
