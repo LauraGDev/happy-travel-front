@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';  
-import PopUp from '../components/popUp/popUp';
+import  { useState , useEffect } from 'react';
+import PopUp from '../components/popUp/popUp'
+import { useLocation } from 'react-router-dom';
+
 
 const Detail = () => {
-    const { id } = useParams();  // Obtener id de la URL
-    const [destinationData, setDestinationData] = useState(null);
+    const location = useLocation();
+    const id = location.state.data;
+    alert(id);
+    const [destinationData, setDestinationData] = useState(null);  
     const [error, setError] = useState(null);
-
     useEffect(() => {
         const fetchDestination = async () => {
             try {
@@ -62,5 +64,6 @@ const Detail = () => {
         </div>
     );
 };
+
 
 export default Detail;

@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
           element: <Edit />,
         },
         {
-          path: '/detail/:id',
+          path: '/detail/:name?',
           element: <Detail />,
         },
       ],
