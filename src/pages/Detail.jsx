@@ -1,6 +1,9 @@
 import  { useState , useEffect } from 'react';
 import PopUp from '../components/popUp/popUp'
 import { useLocation } from 'react-router-dom';
+import EditIcon from '../components/buttons/EditIcon';
+import { PropTypes } from "prop-types";
+
 
 
 const Detail = () => {
@@ -55,6 +58,7 @@ const Detail = () => {
                         </article>
                     </div>
                     <div className="flex justify-end gap-[0.625rem] mr-[7%]">
+                        <EditIcon id={id} name={destinationData.name}/>
                         <PopUp id={id} />
                     </div>
                 </>
@@ -64,6 +68,9 @@ const Detail = () => {
         </div>
     );
 };
-
+Detail.propTypes = {
+	id: PropTypes.number,
+	name: PropTypes.string,
+};
 
 export default Detail;
