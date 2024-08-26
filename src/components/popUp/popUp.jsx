@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { createRoot } from 'react-dom/client';
+import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 
 
-const MyComponent = () => {
+
+const PopUp= () => {
+  const location = useLocation();
+  const id = location.state.data;
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const openPopup = () => {
@@ -11,6 +15,29 @@ const MyComponent = () => {
 
   const closePopup = () => {
     setIsPopupOpen(false);
+  };
+
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`http://localhost:4001/destinations/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      console.log('Response Status:', response.status); 
+  
+      if (!response.ok) {
+        const errorData = await response.text(); // O response.json() si la respuesta es JSON
+        throw new Error(`Error al eliminar el destino: ${errorData}`);
+      }
+  
+      console.log('Eliminado exitosamente');
+      closePopup(); 
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   useEffect(() => {
@@ -45,7 +72,7 @@ const MyComponent = () => {
           <p className="text-blue pt-[1.25rem] text-[1.25rem]">¿Quieres eliminar</p>
               <p className="text-blue pt-[1%] pb-[8%] text-[1.25rem]">este destino?</p>
               <div className="flex justify-center gap-[0.625rem]">
-                <button className="bg-green w-[7rem] h-[2.375rem] rounded-[1.1875rem] text-yellow" onClick={closePopup}>
+                <button className="bg-green w-[7rem] h-[2.375rem] rounded-[1.1875rem] text-yellow" onClick={handleDelete}>
                   Aceptar
                 </button>
                 <button className="bg-pink w-[7rem] h-[2.375rem] rounded-[1.1875rem] text-yellow" onClick={closePopup}>
@@ -59,5 +86,8 @@ const MyComponent = () => {
     </div>
   );
 };
+PopUp.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.number]).isRequired,
+};
 
-export default MyComponent;
+export default PopUp;
