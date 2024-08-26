@@ -6,18 +6,33 @@ import InputImg from '../components/input/InputImg';
 
 const Edit = ({id, onUpdate, name, image, country, message}) => {
 
-    const [title, setTitle] = useState('')
-   // const [isEditing, setIsEditing] = useState(false)
-    const [titleError, setTitleError] = useState(false)
     const [newTitle, setNewTitle] = useState(name)
     const [newImage, setNewImage] = useState(image)
     const [newMessage, setNewMessage] = useState(message)
     const [newCountry, setNewCountry] = useState(country)
+    const [errors, setErrors] = useState({
+      title: false,
+      image: false,
+      country: false,
+      message: false,
+    });
 
+    const validateFields = () => {
+      const newErrors = {
+        title: newTitle.trim() == "",
+        image: newImage.trim() == "",
+        country: newCountry.trim() == "",
+        message: newMessage.trim() == "",
+      };
+      setErrors(newErrors);
+      return Object.values(newErrors).some(error => error === true);
+    } 
+
+    
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const res = await fetch('http://localhost:4001/3');
+          const res = await fetch('http://localhost:4001/${id}');
           const data = await res.json();
 
           setNewTitle(data.name);
@@ -38,13 +53,9 @@ const Edit = ({id, onUpdate, name, image, country, message}) => {
 
     const handleUdpate = async (e) => {
       e.preventDefault();
-
-      // if(!newTitle) {
-      //   setTitleError(true);
-        
-      // } else {
+      if (!validateFields()) {
         try {
-          const response = await fetch('http://localhost:4001/3', {
+          const response = await fetch('http://localhost:4001/${id}', {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -74,6 +85,7 @@ const Edit = ({id, onUpdate, name, image, country, message}) => {
           alert('Error al enviar la solicitud');
         }
       };
+    }
     
 
   return (
@@ -89,23 +101,34 @@ const Edit = ({id, onUpdate, name, image, country, message}) => {
                 type="text"
                 value={newTitle}
                 onChange={(e) => setNewTitle(e.target.value)}
-                //{handleTitle}
               />
-              {/* {titleError && (
-                  <p className="text-pink text-sm pl-3">Título requerido</p>
-                )} */}
+              {errors.title && (
+                <p className="text-pink text-sm pl-3">
+                  Título requerido
+                </p>
+              )}
               <Input 
                 title="Ubicación" 
                 type="text"
                 value={newCountry}
                 onChange={(e) => setNewCountry(e.target.value)}
               />
+              {errors.country && (
+                <p className="text-pink text-sm pl-3">
+									Ubicación requerida
+                </p>
+              )}
               <Input 
                 title="Imagen" 
                 type="text"
                 value={newImage}
                 onChange={(e) => setNewImage(e.target.value)}
               />
+              {errors.image && (
+                <p className="text-pink text-sm pl-3">
+                Imagen requerida
+              </p>
+            )}
               {/* <InputImg 
               title="Imagen"
               value="" 
@@ -118,6 +141,11 @@ const Edit = ({id, onUpdate, name, image, country, message}) => {
           description={newMessage}
           onChange={(e) => setNewMessage(e.target.value)} 
            />
+           {errors.message && (
+              <p className="text-pink text-sm pl-3">
+              Descripción requerida
+              </p>
+           )}
           <div className="flex flex-row justify-between lg:justify-start py-1 lg:row-start-3 gap-[1rem] lg:items-end">
                 <Button className="bg-green" text="Aceptar" type="submit" />
                 <Button className="bg-pink" text="Cancelar"/>
