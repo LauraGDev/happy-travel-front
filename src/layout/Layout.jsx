@@ -6,6 +6,7 @@ const Layout = () => {
     <div className="m-2">
       <Header />
       <main className="font-jaldi">
+        
         <Outlet />
       </main>
     </div>

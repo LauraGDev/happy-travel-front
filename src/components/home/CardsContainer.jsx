@@ -40,11 +40,11 @@ const CardsContainer = () => {
 
     return (
       <section className="flex flex-col">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mx-8 my-8 lg:mx-[4.375rem] relative">
-          {actualItems?.map((des, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mx-8 my-8 lg:mx-[4.375rem] z-[-1] relative">
+          {actualItems?.map((des) => (
             <DestinationCard
-              key={index}
-              id={des.id}
+              key={des.id} 
+              id={des.id} 
               photo={des.image}
               name={des.name}
               country={des.country}
