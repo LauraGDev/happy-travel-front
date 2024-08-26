@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 
-const InputTexArea = ({description, title}) => {
+const InputTextArea = ({description, title}) => {
   const textareaRef = useRef(null);
 
   const adjustHeight = () => {
@@ -22,4 +22,4 @@ const InputTexArea = ({description, title}) => {
   )
 }
 
-export default InputTexArea
+export default InputTextArea
