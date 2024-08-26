@@ -32,7 +32,7 @@ const Edit = ({id, onUpdate, name, image, country, message}) => {
 
       fetchData();
       
-  });
+  }, [image, country, name, message]);
 
 
 
@@ -73,7 +73,7 @@ const Edit = ({id, onUpdate, name, image, country, message}) => {
           console.error('Error al enviar la solicitud:', error);
           alert('Error al enviar la solicitud');
         }
-      }
+      };
     
 
   return (
