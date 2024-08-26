@@ -143,7 +143,7 @@ const Edit = ({id, onUpdate, name, image, country, message}) => {
            />
            {errors.message && (
               <p className="text-pink text-sm pl-3">
-              Descripción requerida
+              Debes poner la razón por la que quieres viajar a este destino
               </p>
            )}
           <div className="flex flex-row justify-between lg:justify-start py-1 lg:row-start-3 gap-[1rem] lg:items-end">
