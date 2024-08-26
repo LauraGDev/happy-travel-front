@@ -1,9 +1,14 @@
 import  { useState } from 'react';
 import React from 'react'
 import PopUp from '../components/popUp/popUp'
+import { useLocation } from 'react-router-dom';
 
 
 const Detail = () => {
+    const location = useLocation();
+    const id = location.state.data;
+    alert(id);
+    
   /* const [searchInput, setSearchInput] = useState('');
     const [destinationData, destionationData] = useState(null);
     const [error, setError] = useState(null);
