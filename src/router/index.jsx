@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
           element: <Create />,
         },
         {
-          path: '/edit',
+          path: '/edit/:name?',
           element: <Edit />,
         },
         {
