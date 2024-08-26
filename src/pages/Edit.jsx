@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom';
 import Input from '../components/input/Input';
 import Button from '../components/buttons/Button';
-import InputTexArea from '../components/input/InputTexArea';
+import InputTextArea from '../components/input/InputTextArea';
 import InputImg from '../components/input/InputImg';
 
-const Edit = ({id, onUpdate, name, image, country, message}) => {
+// por props no entra nada!!
+const Edit = ({ onUpdate, name, image, country, message}) => {
+
+    const location = useLocation();
+    const id = location.state.data; //hacer un get con este id
 
     const [newTitle, setNewTitle] = useState(name)
     const [newImage, setNewImage] = useState(image)
@@ -135,7 +140,7 @@ const Edit = ({id, onUpdate, name, image, country, message}) => {
               onChange="" />
                */}
           </section>
-          <InputTexArea 
+          <InputTextArea 
           className="lg:row-start-1 lg:row-end-3 lg:h-full lg:col-start-2"
           title="¿Por qué quieres viajar allí?" 
           description={newMessage}

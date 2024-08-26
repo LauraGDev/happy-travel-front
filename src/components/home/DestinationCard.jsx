@@ -1,5 +1,12 @@
 import { PropTypes } from "prop-types";
 import { useNavigate  } from 'react-router-dom';
+import EditIcon from "../buttons/EditIcon";
+import Popup from '../popUp/Popup'
+
+
+
+
+
 
 const DestinationCard = ({id, photo, name, country, createdBy, actualUser, isLoggedIn}) => {
 	const navigate = useNavigate()
@@ -24,8 +31,8 @@ const DestinationCard = ({id, photo, name, country, createdBy, actualUser, isLog
 							<p className="text-[1.25rem]">{country}</p>
 					</section>
 					<section className={`icons flex justify-between gap-[0.625rem] ${createdBy === actualUser ? "block" : "hidden"}`}>
-						<a href="#"><img src="Assets/Edit-icon.svg" alt="Editar destino" /></a>
-						<a href="#"><img src="Assets/Delete-icon.svg" alt="Eliminar destino" /></a>
+						<EditIcon id={id} name={name}/>
+						< Popup id={id}/>
 					</section>
 			</section>
 		</section>
