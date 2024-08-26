@@ -33,7 +33,7 @@ const PopUp= () => {
       console.log('Response Status:', response.status); 
   
       if (!response.ok) {
-        const errorData = await response.text(); // O response.json() si la respuesta es JSON
+        const errorData = await response.text();
         throw new Error(`Error al eliminar el destino: ${errorData}`);
       }
   
