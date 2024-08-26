@@ -1,13 +1,18 @@
 import { PropTypes } from "prop-types";
-import { Link } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 
-const DestinationCard = ({photo, name, country, createdBy, actualUser, isLoggedIn}) => {
+const DestinationCard = ({id, photo, name, country, createdBy, actualUser, isLoggedIn}) => {
+	const navigate = useNavigate()
+	
+	const handleRedirect = () => {
+		navigate(`/detail/${name}`, { state: { data: id} })
+	}
+
 	return (
-        
-		<article className="relative text-blue bg-yellow rounded-[1.25rem]">
-			<Link to="/detail" className={`absolute right-0 p-2 ${!isLoggedIn ? "hidden" : "block"}`}>
+		<section className="relative text-blue bg-yellow rounded-[1.25rem]">
+			<button onClick={handleRedirect} className={`absolute right-0 p-2 ${!isLoggedIn ? "hidden" : "block"}`}>
                 <img src="Assets/Info-icon.svg" alt="Más información" />
-            </Link>
+            </button>
 			<img
 					className="rounded-[1.25rem] aspect-square object-cover w-full"
 					src={photo}
@@ -23,17 +28,18 @@ const DestinationCard = ({photo, name, country, createdBy, actualUser, isLoggedI
 						<a href="#"><img src="Assets/Delete-icon.svg" alt="Eliminar destino" /></a>
 					</section>
 			</section>
-		</article>
+		</section>
     );
 };
 
 DestinationCard.propTypes = {
-    photo: PropTypes.string,
-    name: PropTypes.string,
-    country: PropTypes.string,
-    createdBy: PropTypes.number,
-    actualUser: PropTypes.number,
-    isLoggedIn: PropTypes.bool
+	id: PropTypes.number,
+	photo: PropTypes.string,
+	name: PropTypes.string,
+	country: PropTypes.string,
+	createdBy: PropTypes.number,
+	actualUser: PropTypes.number,
+	isLoggedIn: PropTypes.bool
   };
 
 export default DestinationCard;
