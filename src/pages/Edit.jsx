@@ -77,7 +77,7 @@ const Edit = ({id, onUpdate, name, image, country, message}) => {
     
 
   return (
-    <div className="flex justify-center w-auto py-2">
+    <div className="flex justify-center w-auto py-2 mb-[5rem]">
       <section className="lg:w-[45%] w-[22rem] rounded-[1.2rem] bg-white border-4 border-yellow gap-2 py-[1.2rem] px-[1.5rem]">
       <form onSubmit={handleUdpate} >
       <h1 className="text-pink font-jaldi font-bold text-center text-[1.4rem] py-1">Editar destino</h1>
