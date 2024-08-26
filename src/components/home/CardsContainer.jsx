@@ -34,24 +34,23 @@ const CardsContainer = () => {
         }
     };
 
-    console.log(destinations)
-
     const lastElementIndex = actualPage * itemsPerPage;
     const firstElementIndex = lastElementIndex - itemsPerPage;
     const actualItems = isLargeScreen ? destinations.slice(firstElementIndex, lastElementIndex) : destinations;
 
     return (
       <section className="flex flex-col">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mx-8 my-8 lg:mx-[4.375rem] z-[-1] relative">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mx-8 my-8 lg:mx-[4.375rem] relative">
           {actualItems?.map((des, index) => (
             <DestinationCard
               key={index}
+              id={des.id}
               photo={des.image}
               name={des.name}
               country={des.country}
               createdBy={des.id_user}
-              actualUser={2}
-              isLoggedIn={false}
+              actualUser={1}
+              isLoggedIn={true}
             />
           ))}
         </div>
