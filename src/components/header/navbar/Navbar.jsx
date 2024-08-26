@@ -31,7 +31,7 @@ const Navbar = ({ isLogged }) => {
         </NavLink>
       ) : (
         <NavLink
-          to={"/login"}
+          to={"/sign-in"}
           className="flex flex-col items-center justify-center"
         >
           <img
