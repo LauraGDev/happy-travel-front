@@ -10,7 +10,7 @@ const Header = ({ isLogged }) => {
 
   return (
     <div className="">
-      <header className="w-full px-8 justify-center item-center py-3 flex flex-col lg:flex-row lg:justify-between  lg:items-end">
+      <header className="relative w-full px-8 justify-center item-center py-3 flex flex-col lg:flex-row lg:justify-between  lg:items-end">
         <div className="flex justify-center items-center mb-4 lg:mb-0">
           <img src="/Assets/Logo.svg" alt="logo" className="h-16" />
         </div>
