@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate  } from 'react-router-dom';
 import Input from "../components/input/Input";
 import Button from "../components/buttons/Button";
 import InputTexArea from "../components/input/InputTexArea";
+import InputImg from "../components/input/InputImg";
 
 const Create = () => {
+    const navigate = useNavigate()
 	const [title, setTitle] = useState("");
 	const [image, setImage] = useState("");
 	const [country, setCountry] = useState("");
@@ -16,11 +19,12 @@ const Create = () => {
 	});
 
 	const validateFields = () => {
+        console.log(message)
 		const newErrors = {
-			title: title.trim() == "",
-			image: image.trim() == "",
-			country: country.trim() == "",
-			message: message.trim() == "",
+			title: title == "",
+			image: image == "",
+			country: country == "",
+			message: message == "",
 		};
 		setErrors(newErrors);
 		return Object.values(newErrors).some(error => error === true);
@@ -28,7 +32,13 @@ const Create = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(validateFields())
+		console.log(JSON.stringify({
+            name: title,
+            image: image,
+            country: country,
+            message: message,
+            id_user: 1,
+        }))
 		if (!validateFields()) {
 			try {
 				const response = await fetch(
@@ -49,19 +59,19 @@ const Create = () => {
 				);
 
 				if (response.ok) {
-					const result = await response.json();
 					alert("Se ha creado el destino correctamente"); //Falta pop-up
-
 					setTitle("");
 					setCountry("");
 					setImage("");
 					setMessage("");
-					window.location.reload();
+					navigate(`/`)
 				} else {
 					alert("Error al crear el destino"); //Falta pop-up
+                    window.location.reload();
 				}
 			} catch (error) {
-				window.location.reload();
+                console.log(`Error:  ${error}`)
+				//window.location.reload();
 			}
 		}
 	}
@@ -82,9 +92,7 @@ const Create = () => {
 								title="Título"
 								type="text"
 								value={title}
-								onChange={(e) => setTitle(e.target.value)}
-
-							// {handleTitle}
+								onChange={(e) => setTitle(e.target.value.trim())}
 							/>
 							{errors.title && (
 								<p className="text-pink text-sm pl-3">
@@ -97,35 +105,28 @@ const Create = () => {
 								title="Ubicación"
 								type="text"
 								value={country}
-								onChange={(e) => setCountry(e.target.value)}
+								onChange={(e) => setCountry(e.target.value.trim())}
 							/>
 							{errors.country && (
 								<p className="text-pink text-sm pl-3">
 									Ubicación requerida
 								</p>
 							)}
-							<Input
-								id="imagen"
-								htmlFor="imagen"
-								title="Imagen"
-								type="text"
-								value={image}
-								onChange={(e) => setImage(e.target.value)}
-							/>
-							{errors.image && (
+							
+							<InputImg
+                            id="image"
+						title="Imagen" 
+						onChange={(imgUrl) => setImage(imgUrl)} />
+						</section>
+                        {errors.image && (
 								<p className="text-pink text-sm pl-3">
 									Imagen requerida
 								</p>
 							)}
-							{/* <InputImg 
-						title="Imagen"
-						value={imagen} 
-						onChange={(e) => setImage(e.target.value)} /> */}
-						</section>
 						<InputTexArea
 							className="lg:row-start-1 lg:row-end-3 lg:h-full lg:col-start-2"
 							title="¿Por qué quieres viajar allí?"
-							onChange={(e) => setMessage(e.target.value)}
+							onChange={(e) => setMessage(e.target.value.trim())}
 						/>
 						{errors.message && (
 								<p className="text-pink text-sm pl-3">
