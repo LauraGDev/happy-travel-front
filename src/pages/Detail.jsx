@@ -47,24 +47,24 @@ const Detail = () => {
                             alt="Destination"
                         />
                     </div>
-                    <div className="lol">
-                        <div className="absolute bg-pink w-[90%] h-[5.25rem] ml-5 mr-5 text-center rounded-[1.25rem] -mt-[6.40rem] mx-[3.5625rem]">
-                            <p className="text-yellow text-[1.5625rem] mt-[0.3125rem]">
+                    <div className="flex flex-col justify-center content-center items-center w-auto">
+                        <div className="z-2 lg:relative bg-pink lg:bg-transparent w-[80%] px-[2rem] h-[5.25rem] text-center rounded-[1.25rem] -mt-[3rem] lg:text-left ">
+                            <p className="text-yellow lg:text-pink  font-bold text-[1.5625rem] mt-[0.3125rem]">
                                 {destinationData.name}
                             </p>
-                            <p className="text-yellow text-[1.25rem] font-thin">
+                            <p className="text-yellow  lg:text-pink  text-[1.25rem] font-thin">
                                 {destinationData.country}
                             </p>
                         </div>
-                        <article className="text-blue -500 mt-[15%] mx-[5%] mb-[5%] text-sm">
-                            <h3>{destinationData.message}</h3>
+                        <article className="text-blue -500 mt-[15%] mx-[5%] mb-[1rem] text-sm">
+                            <p>{destinationData.message}</p>
                         </article>
-                    </div>
-                    <div className="flex justify-end gap-[0.625rem] mr-[7%]">
+                        <div className="flex justify-end gap-[0.625rem] mr-[7%]">
                         <EditIcon id={id} name={destinationData.name}/>
                         <DeleteIcon id={id} onDeleteSuccess={handleDeleteSuccess} />
-                        
                     </div>
+                    </div>
+                   
                 </>
             ) : (
                 <div>Loading...</div>
