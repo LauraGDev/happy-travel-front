@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate  } from 'react-router-dom';
 import Input from "../components/input/Input";
 import Button from "../components/buttons/Button";
-import InputTexArea from "../components/input/InputTexArea";
+import InputTexArea from "../components/input/InputTextArea";
 import InputImg from "../components/input/InputImg";
 
 const Create = () => {
