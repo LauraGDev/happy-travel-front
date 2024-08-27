@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import Input from "../components/input/Input";
-import Button from "../components/buttons/Button";
-import InputTextArea from "../components/input/InputTextArea";
-import InputImg from "../components/input/InputImg";
 
-const Edit = ({ onUpdate }) => {
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom';
+import Input from '../components/input/Input';
+import Button from '../components/buttons/Button';
+import InputTextArea from '../components/input/InputTextArea';
+import InputImg from '../components/input/InputImg';
+
+const Edit = ({ onUpdate}) => {
+    const navigate = useNavigate();
     const location = useLocation();
-	const navigate = useNavigate();
-    const id = location.state.data;
+    const id = location.state.data; 
 
     if (!id) {
         return <p>Este destino no existe.</p>;
@@ -95,7 +96,11 @@ const Edit = ({ onUpdate }) => {
                 alert("Error al enviar la solicitud");
             }
         }
-    };
+    }
+
+    const navigateHome = () => {
+      navigate('/');
+    }
 
     return (
         <div className="flex justify-center w-auto py-2 mb-[5rem] lg:mt-28">
@@ -167,7 +172,7 @@ const Edit = ({ onUpdate }) => {
                                     text="Aceptar"
                                     type="submit"
                                 />
-                                <Button className="bg-pink" text="Cancelar" />
+                                <Button className="bg-pink" text="Cancelar" onClick={navigateHome}/>
                             </section>
                         </section>
                     </form>
