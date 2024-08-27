@@ -1,22 +1,25 @@
 import SearchBar from "./search/SearchBar";
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "./navbar/Navbar";
+import ResultsList from "./search/ResultsList";
 
 const Header = ({ isLogged }) => {
   const location = useLocation();
+  const [results, setResults] = useState([]);
 
   return (
     <div className="">
-      <header className="w-full px-8 justify-center item-center py-3 flex flex-col lg:flex-row lg:justify-between  lg:items-end">
+      <header className="relative w-full px-8 justify-center item-center py-3 flex flex-col lg:flex-row lg:justify-between  lg:items-end">
         <div className="flex justify-center items-center mb-4 lg:mb-0">
           <img src="/Assets/Logo.svg" alt="logo" className="h-16" />
         </div>
 
         <div className="flex items-center justify-center lg:space-x-4">
           {location.pathname === "/" && (
-            <div className="flex justify-center">
-              <SearchBar />
+            <div className="flex flex-col justify-center">
+              <SearchBar setResults={setResults}/>
+              <ResultsList results={results}/>
             </div>
           )}
 
