@@ -1,7 +1,8 @@
 import { PropTypes } from "prop-types";
 import { useNavigate  } from 'react-router-dom';
 import EditIcon from "../buttons/EditIcon";
-import Popup from '../popUp/PopUp'
+import DeleteIcon from "../buttons/DeleteIcon";
+
 
 
 
@@ -13,7 +14,10 @@ const DestinationCard = ({id, photo, name, country, createdBy, actualUser, isLog
 	
 	const handleRedirect = () => {
 		navigate(`/detail/${name}`, { state: { data: id} })
+
 	}
+
+	const handleDeleteSuccess=()=>{window.location.reload(true);};
 
 	return (
 		<section className="relative text-blue bg-yellow rounded-[1.25rem]">
@@ -32,7 +36,7 @@ const DestinationCard = ({id, photo, name, country, createdBy, actualUser, isLog
 					</section>
 					<section className={`icons flex justify-between gap-[0.625rem] ${createdBy === actualUser ? "block" : "hidden"}`}>
 						<EditIcon id={id} name={name}/>
-						< Popup id={id}/>
+						<DeleteIcon id={id} onDeleteSuccess={handleDeleteSuccess} />
 					</section>
 			</section>
 		</section>
