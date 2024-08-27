@@ -10,7 +10,7 @@ const Result = ({result}) => {
 
 
   return (
-    <div className="px-5 py-2.5 hover:bg-[#efefef]"  onClick={handleRedirect}>
+    <div className="px-5 py-3 border-yellow hover:bg-pink hover:rounded-[1.5rem] hover:font-bold hover:text-yellow bg-yellow"  onClick={handleRedirect}>
       {result.name}
     </div>
   )
