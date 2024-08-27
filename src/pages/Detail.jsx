@@ -1,8 +1,8 @@
 import  { useState , useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import EditIcon from '../components/buttons/EditIcon';
 import { PropTypes } from "prop-types";
-import Popup from '../components/popUp/Popup';
+import DeleteIcon from '../components/buttons/DeleteIcon';
 
 
 
@@ -12,6 +12,8 @@ const Detail = () => {
     const id = location.state.data;
     const [destinationData, setDestinationData] = useState(null);  
     const [error, setError] = useState(null);
+    const navigate= useNavigate();
+    const handleDeleteSuccess=()=>{ navigate('/')};
     useEffect(() => {
         const fetchDestination = async () => {
             try {
@@ -59,7 +61,8 @@ const Detail = () => {
                     </div>
                     <div className="flex justify-end gap-[0.625rem] mr-[7%]">
                         <EditIcon id={id} name={destinationData.name}/>
-                        <Popup id={id} />
+                        <DeleteIcon id={id} onDeleteSuccess={handleDeleteSuccess} />
+                        
                     </div>
                 </>
             ) : (
