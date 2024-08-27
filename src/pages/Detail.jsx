@@ -10,6 +10,7 @@ import DeleteIcon from '../components/buttons/DeleteIcon';
 const Detail = () => {
     const location = useLocation();
     const id = location.state.data;
+    
     const [destinationData, setDestinationData] = useState(null);  
     const [error, setError] = useState(null);
     const navigate= useNavigate();

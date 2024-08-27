@@ -6,9 +6,6 @@ import DeleteIcon from "../buttons/DeleteIcon";
 
 
 
-
-
-
 const DestinationCard = ({id, photo, name, country, createdBy, actualUser, isLoggedIn}) => {
 	const navigate = useNavigate()
 	
@@ -34,7 +31,9 @@ const DestinationCard = ({id, photo, name, country, createdBy, actualUser, isLog
 							<h3 className="font-bold text-[1.563rem] mb-1">{name}</h3>
 							<p className="text-[1.25rem]">{country}</p>
 					</section>
-					<section className={`icons flex justify-between gap-[0.625rem] ${createdBy === actualUser ? "block" : "hidden"}`}>
+					<section 
+					className={`icons flex justify-between gap-[0.625rem] ${createdBy === actualUser ? "block" : "hidden"}`}
+					>
 						<EditIcon id={id} name={name}/>
 						<DeleteIcon id={id} onDeleteSuccess={handleDeleteSuccess} />
 					</section>
