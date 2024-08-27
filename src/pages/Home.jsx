@@ -1,11 +1,14 @@
-import React from 'react'
+
+
+import CardsContainer from '../components/home/CardsContainer'
 
 const Home = () => {
   return (
-    <div>
-      
-    </div>
-  )
+    <main className="max-w-[118.75rem] my-0 mx-auto pb-6">
+      <CardsContainer className="z-[-9999]" />
+    </main>
+  );
+
 }
 
-export default Home
+export default Home;
