@@ -5,7 +5,7 @@ const Layout = () => {
   return (
     <div className="m-2">
       <Header />
-      <main className="font-jaldi">
+      <main className="font-jaldi mb-16">
         
         <Outlet />
       </main>

@@ -3,8 +3,8 @@ import React from 'react'
 const Input = ({title, placeholder, type, value, onChange, id, htmlFor}) => {
 
   return (
-    <div className="flex flex-col mx-2 my-2">
-        <label htmlFor={htmlFor} className="font-jaldi text-blue text-[1.1rem] font-bold ml-2">{title}</label>
+    <div className="flex flex-col mx-2 my-2 text-blue ">
+        <label htmlFor={htmlFor} className="text-[1.1rem] font-bold ml-2">{title}</label>
         <input 
         id={id}
         type={type} 
