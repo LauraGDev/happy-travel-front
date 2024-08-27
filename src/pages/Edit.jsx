@@ -6,15 +6,15 @@ import InputTextArea from '../components/input/InputTextArea';
 import InputImg from '../components/input/InputImg';
 
 // por props no entra nada!!
-const Edit = ({ onUpdate, name, image, country, message}) => {
+const Edit = ({ onUpdate}) => {
 
     const location = useLocation();
     const id = location.state.data; //hacer un get con este id
 
-    const [newTitle, setNewTitle] = useState(name)
-    const [newImage, setNewImage] = useState(image)
-    const [newMessage, setNewMessage] = useState(message)
-    const [newCountry, setNewCountry] = useState(country)
+    const [newTitle, setNewTitle] = useState(null)
+    const [newImage, setNewImage] = useState(null)
+    const [newMessage, setNewMessage] = useState(null)
+    const [newCountry, setNewCountry] = useState(null)
     const [errors, setErrors] = useState({
       title: false,
       image: false,
@@ -37,13 +37,13 @@ const Edit = ({ onUpdate, name, image, country, message}) => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const res = await fetch('http://localhost:4001/${id}');
+          const res = await fetch(`http://localhost:4001/destinations/${id}`);
           const data = await res.json();
 
-          setNewTitle(data.name);
-          setNewCountry(data.country);
-          setNewImage(data.image);
-          setNewMessage(data.message);
+          setNewTitle(data);
+          setNewCountry(data);
+          setNewImage(data);
+          setNewMessage(data);
           
         } catch (error) {
           console.error('Error fethincg data:', error);
@@ -52,7 +52,7 @@ const Edit = ({ onUpdate, name, image, country, message}) => {
 
       fetchData();
       
-  }, [image, country, name, message]);
+  }, [id]);
 
 
 

@@ -2,7 +2,7 @@ import  { useState , useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import EditIcon from '../components/buttons/EditIcon';
 import { PropTypes } from "prop-types";
-import Popup from '../components/popUp/Popup';
+import Popup from '../components/popUp/PopUp';
 
 
 
@@ -10,6 +10,7 @@ import Popup from '../components/popUp/Popup';
 const Detail = () => {
     const location = useLocation();
     const id = location.state.data;
+    
     const [destinationData, setDestinationData] = useState(null);  
     const [error, setError] = useState(null);
     useEffect(() => {
