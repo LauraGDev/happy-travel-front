@@ -30,6 +30,7 @@ const Create = () => {
         return Object.values(newErrors).some((error) => error === true);
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(
@@ -59,7 +60,7 @@ const Create = () => {
                         }), // Modificar cuando tengamos autenticación
                     }
                 );
-
+              
                 if (response.ok) {
                     alert("Se ha creado el destino correctamente"); //Falta pop-up
                     setTitle("");
