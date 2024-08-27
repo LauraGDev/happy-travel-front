@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Input from "../components/input/Input";
 import Button from "../components/buttons/Button";
 import InputTextArea from "../components/input/InputTextArea";
@@ -7,7 +7,8 @@ import InputImg from "../components/input/InputImg";
 
 const Edit = ({ onUpdate }) => {
     const location = useLocation();
-    const id = location.state.data; //hacer un get con este id
+	const navigate = useNavigate();
+    const id = location.state.data;
 
     if (!id) {
         return <p>Este destino no existe.</p>;
@@ -81,7 +82,7 @@ const Edit = ({ onUpdate }) => {
                     if (onUpdate) {
                         onUpdate(newTitle, newCountry, newImage, newMessage);
                     }
-                    window.location.reload();
+                    navigate("/");
                 } else {
                     console.error(
                         "Error al actualizar el destino:",
