@@ -53,7 +53,7 @@ const Create = () => {
 							image: image,
 							country: country,
 							message: message,
-							id_user: 1,
+							id_user: 2,
 						}), // Modificar cuando tengamos autenticación
 					}
 				);

@@ -149,7 +149,7 @@ const Edit = ({ onUpdate}) => {
           <InputTextArea 
           className="lg:row-start-1 lg:row-end-3 lg:h-full lg:col-start-2"
           title="¿Por qué quieres viajar allí?" 
-          description={newMessage}
+          value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)} 
            />
            {errors.message && (
