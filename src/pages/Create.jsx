@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Input from "../components/input/Input";
 import Button from "../components/buttons/Button";
-import InputTexArea from "../components/input/InputTexArea";
+import InputTextArea from "../components/input/InputTextArea";
 
 const Create = () => {
 	const [title, setTitle] = useState("");
@@ -122,7 +122,7 @@ const Create = () => {
 						value={imagen} 
 						onChange={(e) => setImage(e.target.value)} /> */}
 						</section>
-						<InputTexArea
+						<InputTextArea
 							className="lg:row-start-1 lg:row-end-3 lg:h-full lg:col-start-2"
 							title="¿Por qué quieres viajar allí?"
 							onChange={(e) => setMessage(e.target.value)}
