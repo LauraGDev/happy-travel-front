@@ -5,16 +5,19 @@ import Button from '../components/buttons/Button';
 import InputTextArea from '../components/input/InputTextArea';
 import InputImg from '../components/input/InputImg';
 
-// por props no entra nada!!
-const Edit = ({ onUpdate, name, image, country, message}) => {
+const Edit = ({ onUpdate}) => {
 
     const location = useLocation();
     const id = location.state.data; //hacer un get con este id
 
-    const [newTitle, setNewTitle] = useState(name)
-    const [newImage, setNewImage] = useState(image)
-    const [newMessage, setNewMessage] = useState(message)
-    const [newCountry, setNewCountry] = useState(country)
+    if (!id) {
+      return <p>Este destino no existe.</p>;
+    }
+
+    const [newTitle, setNewTitle] = useState("")
+    const [newImage, setNewImage] = useState("")
+    const [newMessage, setNewMessage] = useState("")
+    const [newCountry, setNewCountry] = useState("")
     const [errors, setErrors] = useState({
       title: false,
       image: false,
@@ -37,22 +40,24 @@ const Edit = ({ onUpdate, name, image, country, message}) => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const res = await fetch('http://localhost:4001/${id}');
+          const res = await fetch(`http://localhost:4001/destinations/${id}`);
           const data = await res.json();
 
+          if (data) {
           setNewTitle(data.name);
           setNewCountry(data.country);
           setNewImage(data.image);
           setNewMessage(data.message);
+          }
           
         } catch (error) {
-          console.error('Error fethincg data:', error);
+          console.error('Error fetching data:', error);
         }
       };
 
       fetchData();
       
-  }, [image, country, name, message]);
+  }, [id]);
 
 
 
@@ -60,7 +65,7 @@ const Edit = ({ onUpdate, name, image, country, message}) => {
       e.preventDefault();
       if (!validateFields()) {
         try {
-          const response = await fetch('http://localhost:4001/${id}', {
+          const response = await fetch(`http://localhost:4001/${id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -96,6 +101,7 @@ const Edit = ({ onUpdate, name, image, country, message}) => {
   return (
     <div className="flex justify-center w-auto py-2 mb-[5rem]">
       <section className="lg:w-[45%] w-[22rem] rounded-[1.2rem] bg-white border-4 border-yellow gap-2 py-[1.2rem] px-[1.5rem]">
+      { newTitle && newCountry && newImage && newMessage ? (
       <form onSubmit={handleUdpate} >
       <h1 className="text-pink font-jaldi font-bold text-center text-[1.4rem] py-1">Editar destino</h1>
       <hr className="w-[100%] size-2 border-pink"/>
@@ -157,6 +163,9 @@ const Edit = ({ onUpdate, name, image, country, message}) => {
           </div>
         </section>
         </form>
+        ): (
+          <p>Cargando...</p>
+        )}
       </section>
      
       
