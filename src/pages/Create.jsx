@@ -56,7 +56,7 @@ const Create = () => {
                             image: image,
                             country: country,
                             message: message,
-                            id_user: 1,
+                            id_user: 2,
                         }), // Modificar cuando tengamos autenticación
                     }
                 );
@@ -78,6 +78,11 @@ const Create = () => {
             }
         }
     };
+
+	const navigateHome = () => {
+		navigate('/');
+	  }
+	  
 
     return (
         <div className="flex justify-center w-auto py-2 lg:mt-28">
@@ -148,7 +153,7 @@ const Create = () => {
                                 text="Aceptar"
                                 type="submit"
                             />
-                            <Button className="bg-pink" text="Cancelar" />
+                            <Button className="bg-pink" text="Cancelar" onClick={navigateHome} />
                         </section>
                     </section>
                 </form>

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Input from '../components/input/Input';
 import Button from '../components/buttons/Button';
 import InputTextArea from '../components/input/InputTextArea';
 import InputImg from '../components/input/InputImg';
 
 const Edit = ({ onUpdate}) => {
-
+    const navigate = useNavigate();
     const location = useLocation();
-    const id = location.state.data; //hacer un get con este id
+    const id = location.state.data; 
 
     if (!id) {
       return <p>Este destino no existe.</p>;
@@ -96,6 +96,10 @@ const Edit = ({ onUpdate}) => {
         }
       };
     }
+
+    const navigateHome = () => {
+      navigate('/');
+    }
     
 
   return (
@@ -159,7 +163,7 @@ const Edit = ({ onUpdate}) => {
            )}
           <div className="flex flex-row justify-between lg:justify-start py-1 lg:row-start-3 gap-[1rem] lg:items-end">
                 <Button className="bg-green" text="Aceptar" type="submit" />
-                <Button className="bg-pink" text="Cancelar"/>
+                <Button className="bg-pink" text="Cancelar" onClick={navigateHome}/>
           </div>
         </section>
         </form>
