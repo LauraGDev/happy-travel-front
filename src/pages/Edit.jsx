@@ -19,6 +19,7 @@ const Edit = ({ onUpdate}) => {
     const [newImage, setNewImage] = useState("");
     const [newMessage, setNewMessage] = useState("");
     const [newCountry, setNewCountry] = useState("");
+	const [userId, setUserId] = useState(0);
     const [errors, setErrors] = useState({
         title: false,
         image: false,
@@ -50,6 +51,7 @@ const Edit = ({ onUpdate}) => {
                     setNewCountry(data.country);
                     setNewImage(data.image);
                     setNewMessage(data.message);
+					setUserId(data.id_user);
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -74,7 +76,7 @@ const Edit = ({ onUpdate}) => {
                         country: newCountry,
                         image: newImage,
                         message: newMessage,
-                        id_user: 2,
+                        id_user: userId,
                     }),
                 });
 
