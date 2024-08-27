@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Input from '../components/input/Input';
 import Button from '../components/buttons/Button';
 import InputTextArea from '../components/input/InputTextArea';
-import PopUp from '../components/popUp/PopUp';
+
 
 const Edit = ({ onUpdate}) => {
     const navigate = useNavigate();
