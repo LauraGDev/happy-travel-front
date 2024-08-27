@@ -21,10 +21,10 @@ const Create = () => {
 	const validateFields = () => {
         console.log(message)
 		const newErrors = {
-			title: title == "",
+			title: title.trim() == "",
 			image: image == "",
-			country: country == "",
-			message: message == "",
+			country: country.trim() == "",
+			message: message.trim() == "",
 		};
 		setErrors(newErrors);
 		return Object.values(newErrors).some(error => error === true);
@@ -92,7 +92,7 @@ const Create = () => {
 								title="Título"
 								type="text"
 								value={title}
-								onChange={(e) => setTitle(e.target.value.trim())}
+								onChange={(e) => setTitle(e.target.value)}
 							/>
 							{errors.title && (
 								<p className="text-pink text-sm pl-3">
@@ -105,7 +105,7 @@ const Create = () => {
 								title="Ubicación"
 								type="text"
 								value={country}
-								onChange={(e) => setCountry(e.target.value.trim())}
+								onChange={(e) => setCountry(e.target.value)}
 							/>
 							{errors.country && (
 								<p className="text-pink text-sm pl-3">
