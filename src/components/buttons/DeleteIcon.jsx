@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import PopUp from '../popUp/PopUp';
+import PopUp from '../popUp/popUp';
 
 const DeleteIcon = ({ id, onDeleteSuccess }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
