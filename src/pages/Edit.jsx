@@ -83,7 +83,7 @@ const Edit = ({ onUpdate }) => {
                     if (onUpdate) {
                         onUpdate(newTitle, newCountry, newImage, newMessage);
                     }
-                    navigate("/");
+                    navigate(`/detail/${name}`, { state: { data: id} });
                 } else {
                     console.error(
                         "Error al actualizar el destino:",
