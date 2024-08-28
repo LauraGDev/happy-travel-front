@@ -36,36 +36,39 @@ const Detail = () => {
     }, [id]);
 
     return (
-        <div>
+        <div className="mb-[7rem]">
             {error && <div className="error">{error}</div>}
             {destinationData ? (
-                <>
-                    <div>
+                
+                    <div className="flex flex-col lg:grid lg:grid-cols-[1fr_1fr] w-auto justify-center lg:items-start content-center items-center lg:mx-4 -mx-2 my-4 lg:mt-[4rem]">
                         <img
-                            className="placeImg rounded-b-xl h-96"
+                            className="rounded-[1.25rem] aspect-square object-cover lg:w-[80%] w-full lg:m-3 lg:justify-self-end lg:mr-[2.5rem]"
                             src={destinationData.image}
                             alt="Destination"
                         />
-                    </div>
-                    <div className="flex flex-col justify-center content-center items-center w-auto">
-                        <div className="z-2 lg:relative bg-pink lg:bg-transparent w-[80%] px-[2rem] h-[5.25rem] text-center rounded-[1.25rem] -mt-[3rem] lg:text-left ">
-                            <p className="text-yellow lg:text-pink  font-bold text-[1.5625rem] mt-[0.3125rem]">
-                                {destinationData.name}
-                            </p>
-                            <p className="text-yellow  lg:text-pink  text-[1.25rem] font-thin">
-                                {destinationData.country}
-                            </p>
+                        <div className="lg:w-[100%] w-[90%] lg:relative lg:pr-[3rem]">
+                            <div className="z-2 lg:relative relative h-auto lg:text-left lg:justify-center lg:items-center">
+                                <div className=" bg-pink lg:bg-transparent h-auto lg:text-left text-center rounded-[1.25rem] ">
+                                    <p className="text-yellow lg:text-pink font-bold lg:text-[2.4rem] text-[1.6rem] lg:mt-[0.3125rem] -mt-6 ">
+                                        {destinationData.name}
+                                    </p>
+                                    <p className="text-yellow  lg:text-pink  text-[1.3rem] font-thin">
+                                        {destinationData.country}
+                                    </p>
+                                </div> 
+                                <article className="text-blue mb-[1rem] lg:text-[1.3rem] text-[1rem] leading-relaxed lg:leading-loose mt-[1.2rem]">
+                                <p>{destinationData.message}</p>
+                            </article>
+                            </div>
+                           
+                            <div className="flex justify-end gap-[0.625rem] mr-[7%] lg:absolute lg:right-0 lg:top-5">
+                                    <EditIcon id={id} name={destinationData.name}/>
+                                    <DeleteIcon id={id} onDeleteSuccess={handleDeleteSuccess} />
+                            </div>
                         </div>
-                        <article className="text-blue -500 mt-[15%] mx-[5%] mb-[1rem] text-sm">
-                            <p>{destinationData.message}</p>
-                        </article>
-                        <div className="flex justify-end gap-[0.625rem] mr-[7%]">
-                        <EditIcon id={id} name={destinationData.name}/>
-                        <DeleteIcon id={id} onDeleteSuccess={handleDeleteSuccess} />
-                    </div>
                     </div>
                    
-                </>
+                
             ) : (
                 <div>Loading...</div>
             )}
