@@ -82,7 +82,7 @@ const Login = () => {
           <Input 
             title="E-mail" 
             placeholder="Escribe tu email..." 
-            type="text"
+            type="email"
             value={email}
             onChange={handleEmail} />
           {emailError && (
