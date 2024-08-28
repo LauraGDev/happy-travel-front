@@ -33,15 +33,6 @@ const Create = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(
-            JSON.stringify({
-                name: title,
-                image: image,
-                country: country,
-                message: message,
-                id_user: 1,
-            })
-        );
         if (!validateFields()) {
             try {
                 const response = await fetch(
@@ -56,7 +47,7 @@ const Create = () => {
                             image: image,
                             country: country,
                             message: message,
-                            id_user: 2,
+                            id_user: 1,
                         }), // Modificar cuando tengamos autenticación
                     }
                 );
