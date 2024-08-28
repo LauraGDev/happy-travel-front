@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Input from "../components/input/Input";
 import Button from "../components/buttons/Button";
 import InputTextArea from "../components/input/InputTextArea";
+import InputImg from "../components/input/InputImg";
 import Popup from "../components/popUp/Popup";
 
 const Edit = ({ onUpdate }) => {
@@ -15,7 +16,7 @@ const Edit = ({ onUpdate }) => {
     const [newImage, setNewImage] = useState("");
     const [newMessage, setNewMessage] = useState("");
     const [newCountry, setNewCountry] = useState("");
-    const [userId, setUserId] = useState(0)
+    const [userId, setUserId] = useState(0);
     const [errors, setErrors] = useState({
         title: false,
         image: false,
@@ -28,7 +29,7 @@ const Edit = ({ onUpdate }) => {
     const validateFields = () => {
         const newErrors = {
             title: newTitle.trim() === "",
-            image: newImage.trim() === "",
+            image: newImage === "",
             country: newCountry.trim() === "",
             message: newMessage.trim() === "",
         };
@@ -98,8 +99,8 @@ const Edit = ({ onUpdate }) => {
     };
 
     const navigateHome = () => {
-        navigate('/');
-      }
+        navigate("/");
+    };
 
     return (
         <div className="flex justify-center w-auto py-2 mb-[5rem]">
@@ -138,13 +139,10 @@ const Edit = ({ onUpdate }) => {
                                         Ubicación requerida
                                     </p>
                                 )}
-                                <Input
+                                <InputImg
+                                    id="image"
                                     title="Imagen"
-                                    type="text"
-                                    value={newImage}
-                                    onChange={(e) =>
-                                        setNewImage(e.target.value)
-                                    }
+                                    onChange={(imgUrl) => setNewImage(imgUrl)}
                                 />
                                 {errors.image && (
                                     <p className="text-pink text-sm pl-3">
