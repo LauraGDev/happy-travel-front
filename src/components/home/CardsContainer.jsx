@@ -8,6 +8,7 @@ const CardsContainer = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 768);
     const [destinations, setDestinations] = useState([])
 
+
     const updatePageNumber = (page) => {
         setActualPage(page);
     };
@@ -40,7 +41,7 @@ const CardsContainer = () => {
 
     return (
       <section className="flex flex-col">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mx-8 my-8 lg:mx-[4.375rem] relative">
+        <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mx-8 my-8 lg:mx-[4.375rem] relative">
           {actualItems?.map((des) => (
             <DestinationCard
               key={des.id} 
@@ -53,8 +54,8 @@ const CardsContainer = () => {
               isLoggedIn={true}
             />
           ))}
-        </div>
-        <div
+        </section>
+        <section
           className={`flex justify-center ${
             destinations.length <= 8 || !isLargeScreen ? "hidden" : "block"
           }`}
@@ -64,7 +65,7 @@ const CardsContainer = () => {
             onClick={updatePageNumber}
             totalPages={destinations.length / itemsPerPage}
           />
-        </div>
+        </section>
       </section>
     );
 }
