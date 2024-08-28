@@ -4,6 +4,7 @@ import Input from "../components/input/Input";
 import Button from "../components/buttons/Button";
 import InputTexArea from "../components/input/InputTextArea";
 import InputImg from "../components/input/InputImg";
+import Popup from "../components/popUp/Popup";
 
 const Create = () => {
     const navigate = useNavigate();
@@ -17,6 +18,11 @@ const Create = () => {
         country: false,
         message: false,
     });
+    const [popUpMessage, setPopUpMessage] = useState("");
+    const [popUpFunction, setPopUpFunction] = useState(null);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const closePopup = () => setIsPopupOpen(false);
 
     const validateFields = () => {
         console.log(message);
@@ -30,18 +36,8 @@ const Create = () => {
         return Object.values(newErrors).some((error) => error === true);
     };
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(
-            JSON.stringify({
-                name: title,
-                image: image,
-                country: country,
-                message: message,
-                id_user: 1,
-            })
-        );
         if (!validateFields()) {
             try {
                 const response = await fetch(
@@ -60,24 +56,41 @@ const Create = () => {
                         }), // Modificar cuando tengamos autenticación
                     }
                 );
-              
+
                 if (response.ok) {
-                    alert("Se ha creado el destino correctamente"); //Falta pop-up
+                    setPopUpMessage(
+                        `El destino ${title} se ha creado correctamente`
+                    );
                     setTitle("");
                     setCountry("");
                     setImage("");
                     setMessage("");
-                    navigate(`/`);
+                    setPopUpFunction(() => navigateHome);
+                    setIsPopupOpen(true);
                 } else {
-                    alert("Error al crear el destino"); //Falta pop-up
-                    window.location.reload();
+                    setPopUpMessage(
+                        `No se ha podido crear el destino ${title}`
+                    );
+                    setPopUpFunction(() => reloadPage);
+                    setIsPopupOpen(true);
                 }
-            } catch (error) {
-                console.log(`Error:  ${error}`);
-                window.location.reload();
+            } catch {
+                setPopUpMessage(`No se ha podido crear el destino ${title}`);
+                setPopUpFunction(() => reloadPage);
+                setIsPopupOpen(true);
             }
         }
     };
+
+    const navigateHome = () => {
+        if (isPopupOpen) setIsPopupOpen(false);
+        navigate("/");
+    };
+
+    const reloadPage = () => {
+        if (isPopupOpen) setIsPopupOpen(false);
+        window.location.reload();
+    }
 
     return (
         <div className="flex justify-center w-auto py-2 lg:mt-28">
@@ -148,11 +161,22 @@ const Create = () => {
                                 text="Aceptar"
                                 type="submit"
                             />
-                            <Button className="bg-pink" text="Cancelar" />
+                            <Button
+                                className="bg-pink"
+                                text="Cancelar"
+                                onClick={navigateHome}
+                            />
                         </section>
                     </section>
                 </form>
             </section>
+            <Popup
+                isPopupOpen={isPopupOpen}
+                closePopup={closePopup}
+                onConfirm={popUpFunction}
+                message={popUpMessage}
+                showCancel={false}
+            />
         </div>
     );
 };

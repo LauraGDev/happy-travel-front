@@ -48,7 +48,7 @@ const InputImg = ({ id, title, onChange }) => {
             <div className="flex items-center bg-yellow rounded-[1.2rem] h-[2.7rem] shadow-[inset_0_4px_4px_-0px_rgba(0,0,0,0.2)]">
                 <div className="flex items-center justify-center w-[25%] h-[2.7rem] bg-blue rounded-tl-full rounded-bl-full shadow-[4px_0px_8px_rgba(0,0,0,0.3)]">
                     <img
-                        src="./Assets/File-icon.svg"
+                        src="/Assets/File-icon.svg"
                         alt="icono carpeta"
                         className="w-[2rem] ml-1"
                     />
