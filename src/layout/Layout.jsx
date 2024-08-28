@@ -3,10 +3,9 @@ import Header from "../components/header/Header";
 
 const Layout = () => {
   return (
-    <div className="m-2">
+    <div className="m-2 h-full">
       <Header />
-      <main className="font-jaldi mb-16">
-        
+      <main className="font-jaldi mb-16 h-full">
         <Outlet />
       </main>
     </div>

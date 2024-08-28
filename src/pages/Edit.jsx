@@ -103,7 +103,7 @@ const Edit = ({ onUpdate }) => {
     };
 
     return (
-        <div className="flex justify-center w-auto py-2 mb-[5rem]">
+        <div className="flex justify-center w-auto py-2 lg:mt-28">
             <section className="lg:w-[45%] w-[22rem] rounded-[1.2rem] bg-white border-4 border-yellow gap-2 py-[1.2rem] px-[1.5rem]">
                 {newTitle && newCountry && newImage && newMessage ? (
                     <form onSubmit={(e) => e.preventDefault()}>
@@ -111,8 +111,8 @@ const Edit = ({ onUpdate }) => {
                             Editar destino
                         </h1>
                         <hr className="w-[100%] size-2 border-pink" />
-                        <section className="flex flex-col lg:grid lg:grid-cols-[repeat(2,50%)] lg:grid-rows-[repeat(3,auto)] pt-3 justify-center gap-[1rem]">
-                            <section className="w-[100%] lg:w-[88%] lg:row-[1_/_3] lg:col-[1_/_span_1] lg:items-start items-center lg:justify-items-between space-y-5">
+                        <section className="flex flex-col lg:grid lg:grid-cols-[repeat(2,50%)] lg:grid-rows-[repeat(2)] pt-3 justify-center gap-[1rem]">
+                            <section className="w-[100%] lg:w-[88%] lg:items-start items-center lg:justify-items-between space-y-5">
                                 <Input
                                     title="Título"
                                     type="text"
@@ -150,8 +150,9 @@ const Edit = ({ onUpdate }) => {
                                     </p>
                                 )}
                             </section>
+                            <section className="lg:row-start-1 lg:row-end-3 lg:col-start-2 lg:h-full">
                             <InputTextArea
-                                className="lg:row-start-1 lg:row-end-3 lg:h-full lg:col-start-2"
+                                className=""
                                 title="¿Por qué quieres viajar allí?"
                                 value={newMessage}
                                 onChange={(e) => setNewMessage(e.target.value)}
@@ -162,7 +163,8 @@ const Edit = ({ onUpdate }) => {
                                     viajar a este destino
                                 </p>
                             )}
-                            <div className="flex flex-row justify-between lg:justify-start py-1 lg:row-start-3 gap-[1rem] lg:items-end">
+                            </section>
+                            <section className="flex flex-row justify-between lg:justify-start py-1 lg:row-start-2 gap-[1rem] lg:items-end">
                                 <Button
                                     className="bg-green"
                                     text="Aceptar"
@@ -181,7 +183,7 @@ const Edit = ({ onUpdate }) => {
                                     type="button"
                                     onClick={navigateHome}
                                 />
-                            </div>
+                            </section>
                         </section>
                     </form>
                 ) : (

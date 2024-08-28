@@ -22,7 +22,7 @@ const Popup = ({ isPopupOpen, closePopup, message, onConfirm }) => {
 
   return (
     isPopupOpen && (
-      <div className="absolute w-full h-full bg-[#000000a8] top-0 left-0 z-[9999]">
+      <div className="absolute w-full h-screen bg-[#000000a8] top-0 left-0 z-[9999]">
         <div className="ventana-Popup">
           <div className="bg-yellow h-[10.5rem] w-[21.6875rem] text-center rounded-[10%] fixed inset-0 m-auto">
             <p className="text-blue pt-[1.30rem] text-[1.25rem]">{message}</p>
