@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../buttons/Button';
 
@@ -31,8 +31,8 @@ const Popup = ({ isPopupOpen, closePopup, message, onConfirm }) => {
                 text="Aceptar"
                 type="button"
                 className="bg-green"
-                onClick={() => {
-                  if (onConfirm) onConfirm();
+                onClick={(e) => {
+                  if (onConfirm) onConfirm(e);
                   closePopup();
                 }}
               />
