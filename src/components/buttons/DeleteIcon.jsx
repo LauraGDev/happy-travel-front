@@ -48,7 +48,8 @@ const DeleteIcon = ({ id, onDeleteSuccess }) => {
       <PopUp
         isPopupOpen={isPopupOpen}
         closePopup={closePopup}
-        handleDelete={handleDelete}
+        onConfirm={handleDelete}
+        message='¿Quieres eliminar este destino? '
       />
     </div>
   );
