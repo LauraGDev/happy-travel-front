@@ -10,6 +10,7 @@ const CardsContainer = () => {
     const [actualPage, setActualPage] = useState(1);
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 768);
     const [destinations, setDestinations] = useState([])
+    const [noDestinations, setNoDestinations] = useState(true);
 
     const updatePageNumber = (page) => {
         setActualPage(page);
@@ -32,8 +33,9 @@ const CardsContainer = () => {
             }
             const data = await response.json();
             setDestinations(data);
-        } catch (error) {
-            console.error('Error fetching destinations:', error);
+            setNoDestinations(false);
+        } catch {
+            setNoDestinations(true);
         }
     };
 
@@ -43,6 +45,10 @@ const CardsContainer = () => {
 
     return (
       <section className="flex flex-col">
+        { noDestinations && ( 
+        <section className="flex justify-center items-center">
+            <h2 className="text-blue font-extrabold text-3xl py-64">Aún no hay destinos disponibles</h2>
+        </section>)}
         <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mx-8 my-8 lg:mx-[4.375rem] relative">
           {actualItems?.map((des) => (
             <DestinationCard
