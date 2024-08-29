@@ -66,7 +66,8 @@ const Login = () => {
       const data = await response.json();
       localStorage.setItem('authToken', data.token);
       localStorage.setItem('user', data.user.id);
-      navigate("/");
+      navigate( "/" );
+      window.location.reload();  
       
     } catch (error) {
       setFormError(`Error: ${error.message}`);
