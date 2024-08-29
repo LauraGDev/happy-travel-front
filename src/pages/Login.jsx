@@ -64,8 +64,10 @@ const Login = () => {
       }
 
       const data = await response.json();
-      localStorage.setItem('authToken', data.token);
-      navigate("/");
+      localStorage.setItem( 'authToken', data.token );
+      navigate( "/" );
+      window.location.reload();  
+    
       
     } catch (error) {
       setFormError(`Error: ${error.message}`);
