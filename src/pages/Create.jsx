@@ -9,6 +9,7 @@ import Popup from "../components/popUp/popUp";
 const Create = () => {
     const actualUser = parseInt(localStorage.getItem("user"));
     const token = localStorage.getItem("authToken");
+    console.log(token);
     
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
@@ -49,6 +50,7 @@ const Create = () => {
                         method: "POST",
                         headers: {
                             'Authorization': 'Bearer ' + token,
+                            'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
                             name: title,
