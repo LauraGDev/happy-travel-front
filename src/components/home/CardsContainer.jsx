@@ -5,6 +5,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 const CardsContainer = () => {
     const userAuth = useAuth().isAuthenticated;
+    const actualUser = parseInt(localStorage.getItem("user"));
     const itemsPerPage = 8;
     const [actualPage, setActualPage] = useState(1);
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 768);
@@ -51,7 +52,7 @@ const CardsContainer = () => {
               name={des.name}
               country={des.country}
               createdBy={des.id_user}
-              actualUser={1}
+              actualUser={actualUser}
               isLoggedIn={userAuth}
             />
           ))}
