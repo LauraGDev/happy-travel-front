@@ -10,7 +10,7 @@ const CardsContainer = () => {
     const [actualPage, setActualPage] = useState(1);
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 768);
     const [destinations, setDestinations] = useState([])
-    const [noDestinations, setNoDestinations] = useState(true);
+    const [noDestinations, setNoDestinations] = useState(false);
 
     const updatePageNumber = (page) => {
         setActualPage(page);
