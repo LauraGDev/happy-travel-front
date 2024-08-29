@@ -7,6 +7,10 @@ import InputImg from "../components/input/InputImg";
 import Popup from "../components/popUp/popUp";
 
 const Create = () => {
+    const actualUser = parseInt(localStorage.getItem("user"));
+    const token = localStorage.getItem("authToken");
+    console.log(token);
+    
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
@@ -41,19 +45,20 @@ const Create = () => {
         if (!validateFields()) {
             try {
                 const response = await fetch(
-                    "http://localhost:4001/destinations",
+                    "http://localhost:4001/destinations/create",
                     {
                         method: "POST",
                         headers: {
-                            "Content-type": "application/json",
+                            'Authorization': 'Bearer ' + token,
+                            'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
                             name: title,
                             image: image,
                             country: country,
                             message: message,
-                            id_user: 1,
-                        }), // Modificar cuando tengamos autenticación
+                            id_user: actualUser,
+                        }), 
                     }
                 );
 
