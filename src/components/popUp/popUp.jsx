@@ -23,9 +23,9 @@ const Popup = ({ isPopupOpen, closePopup, message, onConfirm, showCancel = true 
     if (!isPopupOpen) return null;
 
     const popupContent = (
-        <div className="absolute w-full h-screen bg-[#000000a8] top-0 left-0 z-[1000]">
+        <div className="absolute w-full h-screen bg-[#000000a8] top-0 left-0 z-[150000]">
             <div className="ventana-Popup">
-                <div className="bg-yellow h-[10.5rem] w-[21.6875rem] lg:w-[29.375rem] lg:h-[12.5rem] text-center rounded-[10%] fixed inset-0 m-auto flex flex-col align-middle justify-center ">
+                <div className="bg-yellow h-[10.5rem] w-[21.6875rem] lg:w-[29.375rem] lg:h-[12.5rem] text-center rounded-[2rem] fixed inset-0 m-auto flex flex-col align-middle justify-center ">
                     <p className="text-blue pt-[1.30rem] text-[1.25rem]">
                         {message}
                     </p>
@@ -57,10 +57,10 @@ const Popup = ({ isPopupOpen, closePopup, message, onConfirm, showCancel = true 
 };
 
 Popup.propTypes = {
-    isPopupOpen: PropTypes.bool.isRequired,
-    closePopup: PropTypes.func.isRequired,
-    onConfirm: PropTypes.func.isRequired,
-    message: PropTypes.string.isRequired,
+    isPopupOpen: PropTypes.bool,
+    closePopup: PropTypes.func,
+    onConfirm: PropTypes.func,
+    message: PropTypes.string,
     showCancel: PropTypes.bool
 };
 
