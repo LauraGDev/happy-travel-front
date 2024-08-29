@@ -7,6 +7,8 @@ import InputImg from "../components/input/InputImg";
 import Popup from "../components/popUp/popUp";
 
 const Edit = ({ onUpdate }) => {
+    const token = localStorage.getItem("authToken");
+
     const navigate = useNavigate();
     const location = useLocation();
     const id = location.state.data;
@@ -41,7 +43,11 @@ const Edit = ({ onUpdate }) => {
         const fetchData = async () => {
             try {
                 const res = await fetch(
-                    `http://localhost:4001/destinations/${id}`
+                    `http://localhost:4001/destinations/${id}`, {
+                        headers: {
+                            'Authorization': 'Bearer ' + token
+                        }
+                    }
                 );
                 const data = await res.json();
 
@@ -67,7 +73,8 @@ const Edit = ({ onUpdate }) => {
                 const response = await fetch(`http://localhost:4001/${id}`, {
                     method: "PUT",
                     headers: {
-                        "Content-Type": "application/json",
+                        'Authorization': 'Bearer ' + token,
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
                         id,
