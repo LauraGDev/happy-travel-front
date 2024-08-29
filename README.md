@@ -153,9 +153,12 @@ La estructura final del front es la siguiente:
 
 ## Tecnologías
 
+**Front**
 - [React.js](https://react.dev/)
 - [JavaScript](https://www.w3schools.com/js/js_intro.asp)
 - [TailwindCSS](https://tailwindcss.com/)
+
+**Back**
 - [Java](https://www.java.com)
 - [PgAdmin](https://www.pgadmin.org/)+ [SQL](https://www.w3schools.com/sql/default.asp)
 - [SpringBoot](https://spring.io/projects/spring-boot)
