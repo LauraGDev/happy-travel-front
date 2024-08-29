@@ -58,7 +58,7 @@ const Popup = ({ isPopupOpen, closePopup, message, onConfirm, showCancel = true 
 
 Popup.propTypes = {
     isPopupOpen: PropTypes.bool.isRequired,
-    closePopup: PropTypes.func.isRequired,
+    closePopup: PropTypes.func,
     onConfirm: PropTypes.func.isRequired,
     message: PropTypes.string.isRequired,
     showCancel: PropTypes.bool

@@ -4,7 +4,7 @@ import Input from "../components/input/Input";
 import Button from "../components/buttons/Button";
 import InputTextArea from "../components/input/InputTextArea";
 import InputImg from "../components/input/InputImg";
-import Popup from "../components/popUp/Popup";
+import Popup from "../components/popUp/popUp";
 
 const Edit = ({ onUpdate }) => {
     const navigate = useNavigate();

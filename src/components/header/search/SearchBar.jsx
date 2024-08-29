@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import ResultsList from './ResultsList';
 
 
 const SearchBar = ({ setResults }) => {
     const [value, setValue] = useState("");
+    const [result, setResultState] = useState([]);
 
     const fetchData = async (value) => {
         try {
@@ -18,6 +20,7 @@ const SearchBar = ({ setResults }) => {
                 );
             });
             setResults(results);
+            setResultState(results);
         } catch (error) {
             console.error('Error fetching data:', error);
         };
@@ -25,8 +28,19 @@ const SearchBar = ({ setResults }) => {
 
     const handleChange =  (value) => {
         setValue(value);
-        fetchData(value);
+        if (value === "") {
+            setResults([]);
+            setResultState([]);
+        } else {
+            fetchData(value); 
+        }
     }
+
+    useEffect(() => {
+        setValue("");
+        setResults([]);
+        setResultState([]);
+    }, []);
 
   return (
     <div className="flex relative">
