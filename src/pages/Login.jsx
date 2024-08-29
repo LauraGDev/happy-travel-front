@@ -64,7 +64,7 @@ const Login = () => {
       }
 
       const data = await response.json();
-      console.log( "Login exitoso", data );
+      localStorage.setItem('authToken', data.token);
       navigate("/");
       
     } catch (error) {
