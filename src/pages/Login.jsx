@@ -136,10 +136,7 @@ const reloadPage = () => {
               text="Cancelar"
               type="button"
               onClick={() => {
-                setEmail("");
-                setPassword("");
-                setEmailError("");
-                setPasswordError("");
+                navigate("/");
               }}
             />
           </div>
