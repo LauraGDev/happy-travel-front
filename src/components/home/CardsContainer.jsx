@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import DestinationCard from "./DestinationCard"
 import PreviousNextIcons from "./PreviousNextIcons"
+import { useAuth } from "../../hooks/useAuth";
 
 const CardsContainer = () => {
+    const userAuth = useAuth().isAuthenticated;
     const itemsPerPage = 8;
     const [actualPage, setActualPage] = useState(1);
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 768);
     const [destinations, setDestinations] = useState([])
-
 
     const updatePageNumber = (page) => {
         setActualPage(page);
@@ -51,7 +52,7 @@ const CardsContainer = () => {
               country={des.country}
               createdBy={des.id_user}
               actualUser={1}
-              isLoggedIn={true}
+              isLoggedIn={userAuth}
             />
           ))}
         </section>

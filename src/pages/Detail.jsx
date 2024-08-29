@@ -6,10 +6,10 @@ import DeleteIcon from '../components/buttons/DeleteIcon';
 
 
 
-
 const Detail = () => {
     const location = useLocation();
     const id = location.state.data;
+    const token = localStorage.getItem("authToken");
     
     const [destinationData, setDestinationData] = useState(null);  
     const [error, setError] = useState(null);
@@ -17,8 +17,13 @@ const Detail = () => {
     const handleDeleteSuccess=()=>{ navigate('/')};
     useEffect(() => {
         const fetchDestination = async () => {
+            console.log(token);
             try {
-                const response = await fetch(`http://localhost:4001/destinations/${id}`);
+                const response = await fetch(`http://localhost:4001/destinations/${id}`,{
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                      }
+                });
                 const data = await response.json();
                 if (response.ok) {
                     setDestinationData(data);
