@@ -4,6 +4,7 @@ import PopUp from '../popUp/popUp';
 
 const DeleteIcon = ({ id, onDeleteSuccess }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const token = localStorage.getItem("authToken")
 
   const openPopup = () => {
     setIsPopupOpen(true);
@@ -18,7 +19,7 @@ const DeleteIcon = ({ id, onDeleteSuccess }) => {
       const response = await fetch(`http://localhost:4001/destinations/${id}`, {
         method: 'DELETE',
         headers: {
-          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
         },
       });
 
