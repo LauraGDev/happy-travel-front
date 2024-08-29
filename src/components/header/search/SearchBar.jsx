@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react'
 import ResultsList from './ResultsList';
+import { useAuth } from '../../../hooks/useAuth';
+
 
 
 const SearchBar = ({ setResults }) => {
+    const userAuth = useAuth().isAuthenticated;
+
     const [value, setValue] = useState("");
     const [result, setResultState] = useState([]);
 
@@ -43,7 +47,7 @@ const SearchBar = ({ setResults }) => {
     }, []);
 
   return (
-    <div className="flex relative">
+    <div className={`flex relative ${userAuth ? "block" : "hidden"} `}>
         <form 
         onSubmit={(e) => e.preventDefault()}  
         method="post" >
