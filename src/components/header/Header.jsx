@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import Navbar from "./navbar/Navbar";
 import ResultsList from "./search/ResultsList";
 
-const Header = ({ isLogged }) => {
+const Header = () => {
   const location = useLocation();
   const [results, setResults] = useState([]);
 
@@ -18,21 +18,21 @@ const Header = ({ isLogged }) => {
         <div className="flex items-center justify-center lg:space-x-4">
           {location.pathname === "/" && (
             <div className="flex flex-col justify-center">
-              <SearchBar setResults={setResults}/>
-              <ResultsList results={results}/>
+              <SearchBar setResults={setResults} />
+              <ResultsList results={results} />
             </div>
           )}
 
           <div className="hidden lg:flex items-center">
-            <Navbar isLogged={isLogged} />
+            <Navbar  />
           </div>
         </div>
       </header>
       <div className="hidden lg:flex justify-center w-full">
         <div className="w-[95%] border-b-2 border-blue"></div>
       </div>
-      <div className="fixed bottom-2 w-full h-14 flex justify-center items-center lg:hidden right-0">
-        <Navbar isLogged={isLogged} />
+      <div className="fixed bottom-2 w-full h-14 flex justify-center items-center z-[9999] pointer-events-auto lg:hidden right-0">
+        <Navbar />
       </div>
     </div>
   );
