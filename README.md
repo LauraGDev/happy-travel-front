@@ -47,7 +47,7 @@ En el proyecto se ha creado tanto la parte del Front on React js con Tailwind pa
 
 ### Diagrama de flujo
 
-[Ver diagrama de flujo]()
+[Ver diagrama de flujo](https://www.figma.com/board/UrcrZr8sE18p3y7Mz1gyg4/Workflow-Happy-Travel?node-id=0-1&node-type=CANVAS&t=2OtyJqSwXlkkrn9y-0)
 
 ### Diagrama de datos
 
