@@ -3,11 +3,8 @@ import { useNavigate  } from 'react-router-dom';
 import EditIcon from "../buttons/EditIcon";
 import DeleteIcon from "../buttons/DeleteIcon";
 
-
-
-
 const DestinationCard = ({id, photo, name, country, createdBy, actualUser, isLoggedIn}) => {
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 	
 	const handleRedirect = () => {
 		navigate(`/detail/${name}`, { state: { data: id} })
