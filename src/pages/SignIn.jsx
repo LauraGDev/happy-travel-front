@@ -141,7 +141,13 @@ const SignIn = () => {
                             text="Aceptar"
                             type="submit"
                         />
-                        <Button className="bg-pink" text="Cancelar" />
+                        <Button
+                            className="bg-pink"
+                            text="Cancelar"
+                            onClick={() => {
+                                navigate("/");
+                            }}
+                        />
                     </div>
                 </form>
                 <h2 className="font-bold text-blue text-center">
