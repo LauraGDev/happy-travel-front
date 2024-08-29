@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Input from "../components/input/Input";
 import Button from "../components/buttons/Button";
 import { useNavigate } from "react-router-dom";
+import Popup from "../components/popUp/popUp";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [formError, setFormError] = useState("");
   const [ loading, setLoading ] = useState( false );
+  const [popUpMessage, setPopUpMessage] = useState("");
+  const [popUpFunction, setPopUpFunction] = useState(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   
   const navigate = useNavigate();
+  const closePopup = () => setIsPopupOpen(false);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -47,7 +51,6 @@ const Login = () => {
     }
 
     setLoading(true);
-    setFormError("");
 
     try {
       const response = await fetch("http://localhost:4001/auth/login", {
@@ -59,23 +62,39 @@ const Login = () => {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Error en el servidor");
+        setPopUpMessage("Error, usuario o contraseña incorrectos.");
+        setPopUpFunction(() => reloadPage);
+        setIsPopupOpen(true);
       }
 
       const data = await response.json();
       localStorage.setItem('authToken', data.token);
       localStorage.setItem('user', data.user.id);
-      navigate( "/" );
-      window.location.reload();  
+      setPopUpMessage(
+        `Bienvenid@ de nuevo ${data.user.name}`
+      );
+      setPopUpFunction(() => navigateHome);
+      setIsPopupOpen(true);
       
-    } catch (error) {
-      setFormError(`Error: ${error.message}`);
-      console.error("Error durante el login", error);
+    } catch {
+        setPopUpMessage("Error, usuario o contraseña incorrectos.");
+        setPopUpFunction(() => reloadPage);
+        setIsPopupOpen(true);
     } finally {
       setLoading(false);
     }
   };
+
+  const navigateHome = () => {
+    if (isPopupOpen) setIsPopupOpen(false);
+    navigate("/");
+    window.location.reload();
+};
+
+const reloadPage = () => {
+    if (isPopupOpen) setIsPopupOpen(false);
+    window.location.reload();
+};
 
   return (
     <div className="flex flex-row justify-center w-[auto] py-2">
@@ -121,12 +140,18 @@ const Login = () => {
                 setPassword("");
                 setEmailError("");
                 setPasswordError("");
-                setFormError("");
               }}
             />
           </div>
         </form>
       </section>
+      <Popup
+                isPopupOpen={isPopupOpen}
+                closePopup={closePopup}
+                onConfirm={popUpFunction}
+                message={popUpMessage}
+                showCancel={false}
+            />
     </div>
   );
 };
