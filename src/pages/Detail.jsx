@@ -17,12 +17,11 @@ const Detail = () => {
     const handleDeleteSuccess=()=>{ navigate('/')};
     useEffect(() => {
         const fetchDestination = async () => {
-            console.log(token);
             try {
                 const response = await fetch(`http://localhost:4001/destinations/${id}`,{
                     headers: {
                         'Authorization': 'Bearer ' + token
-                      }
+                    }
                 });
                 const data = await response.json();
                 if (response.ok) {
