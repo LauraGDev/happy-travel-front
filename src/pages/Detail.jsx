@@ -10,6 +10,7 @@ const Detail = () => {
     const location = useLocation();
     const id = location.state.data;
     const token = localStorage.getItem("authToken");
+    const actualUser = parseInt(localStorage.getItem("user"));
     
     const [destinationData, setDestinationData] = useState(null);  
     const [error, setError] = useState(null);
@@ -65,7 +66,7 @@ const Detail = () => {
                             </article>
                             </div>
                            
-                            <div className="flex justify-end gap-[0.625rem] mr-[7%] lg:absolute lg:right-0 lg:top-5">
+                            <div className={`flex justify-end gap-[0.625rem] mr-[7%] lg:absolute lg:right-0 lg:top-5 ${destinationData.id_user == actualUser ? "block" : "hidden"}`}>
                                     <EditIcon id={id} name={destinationData.name}/>
                                     <DeleteIcon id={id} onDeleteSuccess={handleDeleteSuccess} />
                             </div>
