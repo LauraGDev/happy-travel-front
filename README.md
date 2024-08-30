@@ -203,12 +203,13 @@ Las coders que hemos trabajado en este proyecto somos:
 - [Sara Terán](https://github.com/Sarii4)
 
 ## Demo
-Vídeo de versión móvil:
+**Vídeo de versión móvil:**
 
 https://github.com/user-attachments/assets/2cb37fe3-1aaa-42a1-8c4a-c3376251a64e
 
 
-Versión desktop:
+**Versión desktop:**
+
 <img width="864" alt="home-ht" src="https://github.com/user-attachments/assets/c119c629-abe1-4ebc-a622-833eb066a37d">
 <img width="863" alt="Captura de pantalla 2024-08-29 a les 18 09 28" src="https://github.com/user-attachments/assets/bdb5f7d6-4f21-493f-85b9-ba081f83bf06">
 <img width="866" alt="Captura de pantalla 2024-08-29 a les 18 08 48" src="https://github.com/user-attachments/assets/2fc03954-ef6e-4423-a841-6464b02a0681">
