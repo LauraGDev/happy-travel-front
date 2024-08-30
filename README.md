@@ -211,12 +211,12 @@ https://github.com/user-attachments/assets/2cb37fe3-1aaa-42a1-8c4a-c3376251a64e
 **Versión desktop:**
 
 <img width="864" alt="home-ht" src="https://github.com/user-attachments/assets/c119c629-abe1-4ebc-a622-833eb066a37d">
-<img width="863" alt="Captura de pantalla 2024-08-29 a les 18 09 28" src="https://github.com/user-attachments/assets/bdb5f7d6-4f21-493f-85b9-ba081f83bf06">
-<img width="866" alt="Captura de pantalla 2024-08-29 a les 18 08 48" src="https://github.com/user-attachments/assets/2fc03954-ef6e-4423-a841-6464b02a0681">
-<img width="861" alt="Captura de pantalla 2024-08-29 a les 18 08 31" src="https://github.com/user-attachments/assets/d6f3a1f3-f2af-4fe3-88d1-70580b951586">
-<img width="862" alt="Captura de pantalla 2024-08-29 a les 18 08 03" src="https://github.com/user-attachments/assets/e1f18b90-f7c6-4820-8886-6b6ac249d179">
-<img width="866" alt="Captura de pantalla 2024-08-29 a les 18 07 30" src="https://github.com/user-attachments/assets/4cd43e76-0314-457a-be3d-be47d848fac4">
-<img width="863" alt="Captura de pantalla 2024-08-29 a les 18 07 15" src="https://github.com/user-attachments/assets/97f0072f-2020-40f8-9b43-d8466b75fc2f">
 <img width="863" alt="register-ht" src="https://github.com/user-attachments/assets/08849b8a-bd3c-4a90-862a-a2c79fe3ec0c">
+<img width="863" alt="Captura de pantalla 2024-08-29 a les 18 07 15" src="https://github.com/user-attachments/assets/97f0072f-2020-40f8-9b43-d8466b75fc2f">
+<img width="866" alt="Captura de pantalla 2024-08-29 a les 18 07 30" src="https://github.com/user-attachments/assets/4cd43e76-0314-457a-be3d-be47d848fac4">
+<img width="862" alt="Captura de pantalla 2024-08-29 a les 18 08 03" src="https://github.com/user-attachments/assets/e1f18b90-f7c6-4820-8886-6b6ac249d179">
+<img width="861" alt="Captura de pantalla 2024-08-29 a les 18 08 31" src="https://github.com/user-attachments/assets/d6f3a1f3-f2af-4fe3-88d1-70580b951586">
+<img width="866" alt="Captura de pantalla 2024-08-29 a les 18 08 48" src="https://github.com/user-attachments/assets/2fc03954-ef6e-4423-a841-6464b02a0681">
+<img width="863" alt="Captura de pantalla 2024-08-29 a les 18 09 28" src="https://github.com/user-attachments/assets/bdb5f7d6-4f21-493f-85b9-ba081f83bf06">
 
 
