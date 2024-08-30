@@ -9,7 +9,6 @@ import Popup from "../components/popUp/popUp";
 const Create = () => {
     const actualUser = parseInt(localStorage.getItem("user"));
     const token = localStorage.getItem("authToken");
-    console.log(token);
     
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
